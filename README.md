@@ -6,7 +6,7 @@ The original serial code was transformed into a scalable parallel version with p
 
 ---
 
-## ⚙️ Compilation
+## Compilation
 
 To compile the MPI-based simulation:
 
