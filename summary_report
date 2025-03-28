@@ -1,0 +1,1375 @@
+Simulation ran with 272 neurons, 100 nerves and 10249 total edges until 100 ns
+
+Nerve 0 (ID: 272)
+----> Type 0: 63503 inputs, 792225 outputs
+----> Type 1: 63699 inputs, 795492 outputs
+----> Type 2: 63091 inputs, 787338 outputs
+----> Type 3: 63173 inputs, 787243 outputs
+----> Type 4: 63392 inputs, 791508 outputs
+----> Type 5: 62793 inputs, 781184 outputs
+----> Type 6: 63097 inputs, 783158 outputs
+----> Type 7: 63026 inputs, 785475 outputs
+----> Type 8: 62824 inputs, 781639 outputs
+----> Type 9: 62824 inputs, 780561 outputs
+Nerve 1 (ID: 273)
+----> Type 0: 63167 inputs, 476363 outputs
+----> Type 1: 62827 inputs, 470769 outputs
+----> Type 2: 63054 inputs, 474415 outputs
+----> Type 3: 63280 inputs, 477299 outputs
+----> Type 4: 62904 inputs, 473988 outputs
+----> Type 5: 63167 inputs, 475391 outputs
+----> Type 6: 63585 inputs, 479606 outputs
+----> Type 7: 62625 inputs, 471321 outputs
+----> Type 8: 63219 inputs, 474948 outputs
+----> Type 9: 63671 inputs, 478209 outputs
+Nerve 2 (ID: 274)
+----> Type 0: 63220 inputs, 546290 outputs
+----> Type 1: 63177 inputs, 547075 outputs
+----> Type 2: 62537 inputs, 541924 outputs
+----> Type 3: 63204 inputs, 545195 outputs
+----> Type 4: 63396 inputs, 545631 outputs
+----> Type 5: 63090 inputs, 545544 outputs
+----> Type 6: 63304 inputs, 545490 outputs
+----> Type 7: 63345 inputs, 547811 outputs
+----> Type 8: 63434 inputs, 548357 outputs
+----> Type 9: 62904 inputs, 544365 outputs
+Nerve 3 (ID: 275)
+----> Type 0: 62556 inputs, 492340 outputs
+----> Type 1: 63465 inputs, 499540 outputs
+----> Type 2: 62735 inputs, 494166 outputs
+----> Type 3: 62673 inputs, 494118 outputs
+----> Type 4: 62963 inputs, 494872 outputs
+----> Type 5: 63114 inputs, 496703 outputs
+----> Type 6: 63289 inputs, 495847 outputs
+----> Type 7: 62680 inputs, 492246 outputs
+----> Type 8: 63188 inputs, 498304 outputs
+----> Type 9: 63239 inputs, 497094 outputs
+Nerve 4 (ID: 276)
+----> Type 0: 62713 inputs, 444718 outputs
+----> Type 1: 62514 inputs, 444695 outputs
+----> Type 2: 62683 inputs, 445097 outputs
+----> Type 3: 62774 inputs, 446404 outputs
+----> Type 4: 62861 inputs, 446489 outputs
+----> Type 5: 63005 inputs, 446182 outputs
+----> Type 6: 63511 inputs, 451757 outputs
+----> Type 7: 62606 inputs, 445456 outputs
+----> Type 8: 62986 inputs, 447409 outputs
+----> Type 9: 62667 inputs, 444886 outputs
+Nerve 5 (ID: 277)
+----> Type 0: 62772 inputs, 580684 outputs
+----> Type 1: 62906 inputs, 583435 outputs
+----> Type 2: 63226 inputs, 585346 outputs
+----> Type 3: 63307 inputs, 583853 outputs
+----> Type 4: 63029 inputs, 580594 outputs
+----> Type 5: 63211 inputs, 585529 outputs
+----> Type 6: 63377 inputs, 584166 outputs
+----> Type 7: 63158 inputs, 582881 outputs
+----> Type 8: 62656 inputs, 580536 outputs
+----> Type 9: 63203 inputs, 584035 outputs
+Nerve 6 (ID: 278)
+----> Type 0: 63538 inputs, 438937 outputs
+----> Type 1: 62656 inputs, 434958 outputs
+----> Type 2: 63002 inputs, 436399 outputs
+----> Type 3: 62570 inputs, 434322 outputs
+----> Type 4: 63193 inputs, 437692 outputs
+----> Type 5: 62619 inputs, 432522 outputs
+----> Type 6: 62916 inputs, 435524 outputs
+----> Type 7: 63247 inputs, 438087 outputs
+----> Type 8: 62736 inputs, 434771 outputs
+----> Type 9: 62644 inputs, 434007 outputs
+Nerve 7 (ID: 279)
+----> Type 0: 62859 inputs, 659587 outputs
+----> Type 1: 63113 inputs, 662138 outputs
+----> Type 2: 63013 inputs, 662351 outputs
+----> Type 3: 62995 inputs, 661113 outputs
+----> Type 4: 62704 inputs, 657113 outputs
+----> Type 5: 62748 inputs, 656060 outputs
+----> Type 6: 63190 inputs, 664876 outputs
+----> Type 7: 63205 inputs, 662658 outputs
+----> Type 8: 62603 inputs, 658208 outputs
+----> Type 9: 63443 inputs, 666238 outputs
+Nerve 8 (ID: 280)
+----> Type 0: 62339 inputs, 1938727 outputs
+----> Type 1: 62872 inputs, 1943869 outputs
+----> Type 2: 63228 inputs, 1968276 outputs
+----> Type 3: 62626 inputs, 1942015 outputs
+----> Type 4: 62657 inputs, 1945263 outputs
+----> Type 5: 62950 inputs, 1950308 outputs
+----> Type 6: 63009 inputs, 1963990 outputs
+----> Type 7: 63236 inputs, 1962940 outputs
+----> Type 8: 62729 inputs, 1938593 outputs
+----> Type 9: 63244 inputs, 1960129 outputs
+Nerve 9 (ID: 281)
+----> Type 0: 62800 inputs, 686456 outputs
+----> Type 1: 63141 inputs, 690493 outputs
+----> Type 2: 63238 inputs, 693403 outputs
+----> Type 3: 63203 inputs, 691362 outputs
+----> Type 4: 62379 inputs, 685130 outputs
+----> Type 5: 63048 inputs, 691350 outputs
+----> Type 6: 63090 inputs, 692300 outputs
+----> Type 7: 62672 inputs, 684661 outputs
+----> Type 8: 62854 inputs, 688528 outputs
+----> Type 9: 63515 inputs, 695330 outputs
+Nerve 10 (ID: 282)
+----> Type 0: 62858 inputs, 731535 outputs
+----> Type 1: 63197 inputs, 734860 outputs
+----> Type 2: 63010 inputs, 730308 outputs
+----> Type 3: 62801 inputs, 732981 outputs
+----> Type 4: 63383 inputs, 738118 outputs
+----> Type 5: 63394 inputs, 736848 outputs
+----> Type 6: 62875 inputs, 728342 outputs
+----> Type 7: 63448 inputs, 736153 outputs
+----> Type 8: 63136 inputs, 735004 outputs
+----> Type 9: 62813 inputs, 729406 outputs
+Nerve 11 (ID: 283)
+----> Type 0: 62859 inputs, 702991 outputs
+----> Type 1: 62977 inputs, 702181 outputs
+----> Type 2: 63194 inputs, 703980 outputs
+----> Type 3: 63292 inputs, 706451 outputs
+----> Type 4: 63078 inputs, 702503 outputs
+----> Type 5: 62791 inputs, 699105 outputs
+----> Type 6: 63476 inputs, 709304 outputs
+----> Type 7: 63318 inputs, 706894 outputs
+----> Type 8: 62888 inputs, 701386 outputs
+----> Type 9: 62892 inputs, 701152 outputs
+Nerve 12 (ID: 284)
+----> Type 0: 63164 inputs, 841321 outputs
+----> Type 1: 63284 inputs, 839338 outputs
+----> Type 2: 62995 inputs, 837447 outputs
+----> Type 3: 63329 inputs, 845355 outputs
+----> Type 4: 62898 inputs, 832936 outputs
+----> Type 5: 62928 inputs, 836094 outputs
+----> Type 6: 63106 inputs, 840990 outputs
+----> Type 7: 63070 inputs, 839185 outputs
+----> Type 8: 63067 inputs, 836973 outputs
+----> Type 9: 63265 inputs, 843136 outputs
+Nerve 13 (ID: 285)
+----> Type 0: 63244 inputs, 1752793 outputs
+----> Type 1: 63199 inputs, 1752535 outputs
+----> Type 2: 62978 inputs, 1742255 outputs
+----> Type 3: 63147 inputs, 1750172 outputs
+----> Type 4: 63352 inputs, 1750290 outputs
+----> Type 5: 62916 inputs, 1742761 outputs
+----> Type 6: 62965 inputs, 1748265 outputs
+----> Type 7: 62970 inputs, 1737803 outputs
+----> Type 8: 63265 inputs, 1755063 outputs
+----> Type 9: 62848 inputs, 1741213 outputs
+Nerve 14 (ID: 286)
+----> Type 0: 62969 inputs, 589159 outputs
+----> Type 1: 63201 inputs, 589655 outputs
+----> Type 2: 63147 inputs, 588475 outputs
+----> Type 3: 63104 inputs, 589029 outputs
+----> Type 4: 62802 inputs, 584692 outputs
+----> Type 5: 63258 inputs, 591518 outputs
+----> Type 6: 62952 inputs, 587110 outputs
+----> Type 7: 63152 inputs, 589539 outputs
+----> Type 8: 62928 inputs, 586300 outputs
+----> Type 9: 63110 inputs, 587203 outputs
+Nerve 15 (ID: 287)
+----> Type 0: 63579 inputs, 701451 outputs
+----> Type 1: 62960 inputs, 692583 outputs
+----> Type 2: 63250 inputs, 695913 outputs
+----> Type 3: 63139 inputs, 694396 outputs
+----> Type 4: 63082 inputs, 694877 outputs
+----> Type 5: 62837 inputs, 689627 outputs
+----> Type 6: 62962 inputs, 692477 outputs
+----> Type 7: 62882 inputs, 690901 outputs
+----> Type 8: 63093 inputs, 698175 outputs
+----> Type 9: 62881 inputs, 693632 outputs
+Nerve 16 (ID: 288)
+----> Type 0: 62469 inputs, 631061 outputs
+----> Type 1: 62999 inputs, 633182 outputs
+----> Type 2: 63529 inputs, 642107 outputs
+----> Type 3: 63241 inputs, 637552 outputs
+----> Type 4: 63253 inputs, 639989 outputs
+----> Type 5: 63171 inputs, 636712 outputs
+----> Type 6: 63137 inputs, 636385 outputs
+----> Type 7: 62997 inputs, 635791 outputs
+----> Type 8: 63318 inputs, 638829 outputs
+----> Type 9: 63108 inputs, 637886 outputs
+Nerve 17 (ID: 289)
+----> Type 0: 62971 inputs, 646626 outputs
+----> Type 1: 63611 inputs, 651604 outputs
+----> Type 2: 62905 inputs, 642169 outputs
+----> Type 3: 63335 inputs, 651646 outputs
+----> Type 4: 62803 inputs, 642970 outputs
+----> Type 5: 62736 inputs, 643375 outputs
+----> Type 6: 62773 inputs, 643723 outputs
+----> Type 7: 63346 inputs, 648182 outputs
+----> Type 8: 62840 inputs, 645440 outputs
+----> Type 9: 62944 inputs, 645350 outputs
+Nerve 18 (ID: 290)
+----> Type 0: 62970 inputs, 916905 outputs
+----> Type 1: 62668 inputs, 911286 outputs
+----> Type 2: 62914 inputs, 913502 outputs
+----> Type 3: 63200 inputs, 913285 outputs
+----> Type 4: 63085 inputs, 914624 outputs
+----> Type 5: 63064 inputs, 911472 outputs
+----> Type 6: 63016 inputs, 914070 outputs
+----> Type 7: 62870 inputs, 911877 outputs
+----> Type 8: 62833 inputs, 912730 outputs
+----> Type 9: 63000 inputs, 914497 outputs
+Nerve 19 (ID: 291)
+----> Type 0: 62815 inputs, 1152024 outputs
+----> Type 1: 63330 inputs, 1159878 outputs
+----> Type 2: 63226 inputs, 1156918 outputs
+----> Type 3: 63364 inputs, 1158809 outputs
+----> Type 4: 63147 inputs, 1155375 outputs
+----> Type 5: 62925 inputs, 1149413 outputs
+----> Type 6: 63021 inputs, 1150940 outputs
+----> Type 7: 63227 inputs, 1161327 outputs
+----> Type 8: 63610 inputs, 1162401 outputs
+----> Type 9: 63580 inputs, 1163873 outputs
+Nerve 20 (ID: 292)
+----> Type 0: 63086 inputs, 415261 outputs
+----> Type 1: 62691 inputs, 413614 outputs
+----> Type 2: 62764 inputs, 413629 outputs
+----> Type 3: 63146 inputs, 417676 outputs
+----> Type 4: 63090 inputs, 415015 outputs
+----> Type 5: 63368 inputs, 417880 outputs
+----> Type 6: 63361 inputs, 419599 outputs
+----> Type 7: 62991 inputs, 415569 outputs
+----> Type 8: 62977 inputs, 415771 outputs
+----> Type 9: 62909 inputs, 415231 outputs
+Nerve 21 (ID: 293)
+----> Type 0: 62960 inputs, 592711 outputs
+----> Type 1: 62761 inputs, 591555 outputs
+----> Type 2: 63358 inputs, 596850 outputs
+----> Type 3: 63082 inputs, 593953 outputs
+----> Type 4: 63195 inputs, 594951 outputs
+----> Type 5: 62987 inputs, 591764 outputs
+----> Type 6: 63192 inputs, 595263 outputs
+----> Type 7: 62935 inputs, 592196 outputs
+----> Type 8: 63514 inputs, 597474 outputs
+----> Type 9: 62668 inputs, 589839 outputs
+Nerve 22 (ID: 294)
+----> Type 0: 63355 inputs, 702046 outputs
+----> Type 1: 62963 inputs, 695366 outputs
+----> Type 2: 63031 inputs, 697044 outputs
+----> Type 3: 63069 inputs, 698748 outputs
+----> Type 4: 63026 inputs, 696714 outputs
+----> Type 5: 63118 inputs, 697362 outputs
+----> Type 6: 62922 inputs, 693786 outputs
+----> Type 7: 63291 inputs, 700818 outputs
+----> Type 8: 62509 inputs, 689568 outputs
+----> Type 9: 62655 inputs, 691851 outputs
+Nerve 23 (ID: 295)
+----> Type 0: 62679 inputs, 597379 outputs
+----> Type 1: 62678 inputs, 597137 outputs
+----> Type 2: 62971 inputs, 599928 outputs
+----> Type 3: 62945 inputs, 601423 outputs
+----> Type 4: 63018 inputs, 601321 outputs
+----> Type 5: 62856 inputs, 601397 outputs
+----> Type 6: 62920 inputs, 598828 outputs
+----> Type 7: 62826 inputs, 599824 outputs
+----> Type 8: 62879 inputs, 601237 outputs
+----> Type 9: 63466 inputs, 606987 outputs
+Nerve 24 (ID: 296)
+----> Type 0: 62919 inputs, 682238 outputs
+----> Type 1: 62753 inputs, 682894 outputs
+----> Type 2: 62993 inputs, 683093 outputs
+----> Type 3: 62460 inputs, 678676 outputs
+----> Type 4: 62850 inputs, 682834 outputs
+----> Type 5: 62388 inputs, 679026 outputs
+----> Type 6: 62540 inputs, 680364 outputs
+----> Type 7: 62621 inputs, 681388 outputs
+----> Type 8: 62461 inputs, 677645 outputs
+----> Type 9: 62429 inputs, 679433 outputs
+Nerve 25 (ID: 297)
+----> Type 0: 62996 inputs, 756656 outputs
+----> Type 1: 63000 inputs, 754599 outputs
+----> Type 2: 63145 inputs, 756350 outputs
+----> Type 3: 62906 inputs, 753509 outputs
+----> Type 4: 63593 inputs, 760854 outputs
+----> Type 5: 63092 inputs, 753432 outputs
+----> Type 6: 63076 inputs, 751951 outputs
+----> Type 7: 63914 inputs, 761793 outputs
+----> Type 8: 62962 inputs, 757043 outputs
+----> Type 9: 63105 inputs, 754573 outputs
+Nerve 26 (ID: 298)
+----> Type 0: 63015 inputs, 587333 outputs
+----> Type 1: 62955 inputs, 584055 outputs
+----> Type 2: 63024 inputs, 583894 outputs
+----> Type 3: 62734 inputs, 582031 outputs
+----> Type 4: 62833 inputs, 581855 outputs
+----> Type 5: 62669 inputs, 579459 outputs
+----> Type 6: 62879 inputs, 582310 outputs
+----> Type 7: 63034 inputs, 582946 outputs
+----> Type 8: 63424 inputs, 588462 outputs
+----> Type 9: 62942 inputs, 582271 outputs
+Nerve 27 (ID: 299)
+----> Type 0: 63369 inputs, 429447 outputs
+----> Type 1: 62806 inputs, 424753 outputs
+----> Type 2: 63093 inputs, 426291 outputs
+----> Type 3: 62542 inputs, 423644 outputs
+----> Type 4: 62338 inputs, 422567 outputs
+----> Type 5: 63183 inputs, 427003 outputs
+----> Type 6: 62697 inputs, 424013 outputs
+----> Type 7: 63329 inputs, 428566 outputs
+----> Type 8: 62902 inputs, 425280 outputs
+----> Type 9: 62825 inputs, 426390 outputs
+Nerve 28 (ID: 300)
+----> Type 0: 63155 inputs, 825183 outputs
+----> Type 1: 63290 inputs, 827011 outputs
+----> Type 2: 63101 inputs, 825362 outputs
+----> Type 3: 63340 inputs, 827459 outputs
+----> Type 4: 63305 inputs, 830296 outputs
+----> Type 5: 63079 inputs, 826471 outputs
+----> Type 6: 62734 inputs, 819360 outputs
+----> Type 7: 63262 inputs, 827951 outputs
+----> Type 8: 63574 inputs, 832602 outputs
+----> Type 9: 63373 inputs, 829684 outputs
+Nerve 29 (ID: 301)
+----> Type 0: 62683 inputs, 707523 outputs
+----> Type 1: 63143 inputs, 713721 outputs
+----> Type 2: 62749 inputs, 704725 outputs
+----> Type 3: 62937 inputs, 709892 outputs
+----> Type 4: 63014 inputs, 712722 outputs
+----> Type 5: 62464 inputs, 704463 outputs
+----> Type 6: 62731 inputs, 708968 outputs
+----> Type 7: 62877 inputs, 708553 outputs
+----> Type 8: 62833 inputs, 709057 outputs
+----> Type 9: 62983 inputs, 708880 outputs
+Nerve 30 (ID: 302)
+----> Type 0: 62983 inputs, 1523615 outputs
+----> Type 1: 63031 inputs, 1526811 outputs
+----> Type 2: 63322 inputs, 1537882 outputs
+----> Type 3: 63486 inputs, 1541533 outputs
+----> Type 4: 63294 inputs, 1530267 outputs
+----> Type 5: 63690 inputs, 1545233 outputs
+----> Type 6: 63590 inputs, 1539805 outputs
+----> Type 7: 63163 inputs, 1532919 outputs
+----> Type 8: 63215 inputs, 1531449 outputs
+----> Type 9: 63687 inputs, 1543868 outputs
+Nerve 31 (ID: 303)
+----> Type 0: 63391 inputs, 682951 outputs
+----> Type 1: 62613 inputs, 672339 outputs
+----> Type 2: 63281 inputs, 681594 outputs
+----> Type 3: 62639 inputs, 674377 outputs
+----> Type 4: 62925 inputs, 678031 outputs
+----> Type 5: 63153 inputs, 683022 outputs
+----> Type 6: 62825 inputs, 677951 outputs
+----> Type 7: 62813 inputs, 676833 outputs
+----> Type 8: 62831 inputs, 677171 outputs
+----> Type 9: 62393 inputs, 673676 outputs
+Nerve 32 (ID: 304)
+----> Type 0: 62636 inputs, 346668 outputs
+----> Type 1: 63053 inputs, 350769 outputs
+----> Type 2: 62886 inputs, 348886 outputs
+----> Type 3: 62699 inputs, 347738 outputs
+----> Type 4: 62287 inputs, 345982 outputs
+----> Type 5: 62824 inputs, 348334 outputs
+----> Type 6: 62579 inputs, 347289 outputs
+----> Type 7: 62900 inputs, 348452 outputs
+----> Type 8: 62237 inputs, 344837 outputs
+----> Type 9: 62519 inputs, 345638 outputs
+Nerve 33 (ID: 305)
+----> Type 0: 62687 inputs, 527303 outputs
+----> Type 1: 62710 inputs, 528553 outputs
+----> Type 2: 62537 inputs, 526786 outputs
+----> Type 3: 62511 inputs, 526075 outputs
+----> Type 4: 63012 inputs, 531663 outputs
+----> Type 5: 63242 inputs, 532391 outputs
+----> Type 6: 62968 inputs, 532024 outputs
+----> Type 7: 62864 inputs, 528638 outputs
+----> Type 8: 63217 inputs, 532130 outputs
+----> Type 9: 62486 inputs, 525350 outputs
+Nerve 34 (ID: 306)
+----> Type 0: 63279 inputs, 461535 outputs
+----> Type 1: 63044 inputs, 459961 outputs
+----> Type 2: 63348 inputs, 462371 outputs
+----> Type 3: 63350 inputs, 462054 outputs
+----> Type 4: 62902 inputs, 457999 outputs
+----> Type 5: 62920 inputs, 457804 outputs
+----> Type 6: 62899 inputs, 459053 outputs
+----> Type 7: 63172 inputs, 459731 outputs
+----> Type 8: 63226 inputs, 462218 outputs
+----> Type 9: 62858 inputs, 457896 outputs
+Nerve 35 (ID: 307)
+----> Type 0: 62991 inputs, 720736 outputs
+----> Type 1: 62761 inputs, 715138 outputs
+----> Type 2: 62558 inputs, 714287 outputs
+----> Type 3: 63146 inputs, 719409 outputs
+----> Type 4: 62566 inputs, 714341 outputs
+----> Type 5: 62871 inputs, 716369 outputs
+----> Type 6: 62689 inputs, 714890 outputs
+----> Type 7: 62789 inputs, 716389 outputs
+----> Type 8: 62887 inputs, 718557 outputs
+----> Type 9: 62343 inputs, 710278 outputs
+Nerve 36 (ID: 308)
+----> Type 0: 62818 inputs, 517802 outputs
+----> Type 1: 62429 inputs, 514897 outputs
+----> Type 2: 62551 inputs, 515614 outputs
+----> Type 3: 62885 inputs, 520161 outputs
+----> Type 4: 62510 inputs, 517038 outputs
+----> Type 5: 62868 inputs, 519265 outputs
+----> Type 6: 62704 inputs, 518881 outputs
+----> Type 7: 62727 inputs, 519371 outputs
+----> Type 8: 62914 inputs, 520892 outputs
+----> Type 9: 63109 inputs, 520560 outputs
+Nerve 37 (ID: 309)
+----> Type 0: 63008 inputs, 558421 outputs
+----> Type 1: 63330 inputs, 561758 outputs
+----> Type 2: 62619 inputs, 555417 outputs
+----> Type 3: 63089 inputs, 558836 outputs
+----> Type 4: 62938 inputs, 559026 outputs
+----> Type 5: 62989 inputs, 559732 outputs
+----> Type 6: 63592 inputs, 563076 outputs
+----> Type 7: 63192 inputs, 560758 outputs
+----> Type 8: 62826 inputs, 553711 outputs
+----> Type 9: 63090 inputs, 561183 outputs
+Nerve 38 (ID: 310)
+----> Type 0: 63608 inputs, 1411850 outputs
+----> Type 1: 63347 inputs, 1404912 outputs
+----> Type 2: 62857 inputs, 1396452 outputs
+----> Type 3: 63031 inputs, 1397415 outputs
+----> Type 4: 63225 inputs, 1406162 outputs
+----> Type 5: 63616 inputs, 1413089 outputs
+----> Type 6: 63335 inputs, 1406464 outputs
+----> Type 7: 62679 inputs, 1389336 outputs
+----> Type 8: 63164 inputs, 1405662 outputs
+----> Type 9: 63381 inputs, 1408609 outputs
+Nerve 39 (ID: 311)
+----> Type 0: 62783 inputs, 875075 outputs
+----> Type 1: 63348 inputs, 885974 outputs
+----> Type 2: 63030 inputs, 880123 outputs
+----> Type 3: 63176 inputs, 883737 outputs
+----> Type 4: 62867 inputs, 879872 outputs
+----> Type 5: 62829 inputs, 876378 outputs
+----> Type 6: 62875 inputs, 879071 outputs
+----> Type 7: 62988 inputs, 881890 outputs
+----> Type 8: 63777 inputs, 891121 outputs
+----> Type 9: 63017 inputs, 880978 outputs
+Nerve 40 (ID: 312)
+----> Type 0: 62952 inputs, 634354 outputs
+----> Type 1: 63351 inputs, 639801 outputs
+----> Type 2: 63267 inputs, 638110 outputs
+----> Type 3: 63016 inputs, 636251 outputs
+----> Type 4: 62702 inputs, 632524 outputs
+----> Type 5: 62366 inputs, 632634 outputs
+----> Type 6: 63358 inputs, 641149 outputs
+----> Type 7: 62797 inputs, 634036 outputs
+----> Type 8: 63024 inputs, 635590 outputs
+----> Type 9: 62725 inputs, 632590 outputs
+Nerve 41 (ID: 313)
+----> Type 0: 63098 inputs, 2087076 outputs
+----> Type 1: 63232 inputs, 2087704 outputs
+----> Type 2: 63177 inputs, 2078695 outputs
+----> Type 3: 62403 inputs, 2058574 outputs
+----> Type 4: 63249 inputs, 2083019 outputs
+----> Type 5: 62988 inputs, 2075409 outputs
+----> Type 6: 62696 inputs, 2065999 outputs
+----> Type 7: 62475 inputs, 2060485 outputs
+----> Type 8: 63392 inputs, 2090149 outputs
+----> Type 9: 62473 inputs, 2061279 outputs
+Nerve 42 (ID: 314)
+----> Type 0: 62983 inputs, 598685 outputs
+----> Type 1: 62742 inputs, 596929 outputs
+----> Type 2: 63362 inputs, 602132 outputs
+----> Type 3: 62728 inputs, 594887 outputs
+----> Type 4: 63118 inputs, 599370 outputs
+----> Type 5: 62992 inputs, 600465 outputs
+----> Type 6: 62930 inputs, 596171 outputs
+----> Type 7: 62778 inputs, 599304 outputs
+----> Type 8: 62938 inputs, 596285 outputs
+----> Type 9: 62741 inputs, 594249 outputs
+Nerve 43 (ID: 315)
+----> Type 0: 62902 inputs, 388837 outputs
+----> Type 1: 63458 inputs, 391005 outputs
+----> Type 2: 62514 inputs, 386982 outputs
+----> Type 3: 63364 inputs, 390281 outputs
+----> Type 4: 63090 inputs, 390446 outputs
+----> Type 5: 63325 inputs, 390325 outputs
+----> Type 6: 63214 inputs, 390077 outputs
+----> Type 7: 63129 inputs, 390530 outputs
+----> Type 8: 62750 inputs, 387912 outputs
+----> Type 9: 62917 inputs, 387701 outputs
+Nerve 44 (ID: 316)
+----> Type 0: 62861 inputs, 505569 outputs
+----> Type 1: 63127 inputs, 510826 outputs
+----> Type 2: 62771 inputs, 505830 outputs
+----> Type 3: 63202 inputs, 509093 outputs
+----> Type 4: 63273 inputs, 510122 outputs
+----> Type 5: 63131 inputs, 508810 outputs
+----> Type 6: 63207 inputs, 508627 outputs
+----> Type 7: 63209 inputs, 508011 outputs
+----> Type 8: 63106 inputs, 507895 outputs
+----> Type 9: 62866 inputs, 505763 outputs
+Nerve 45 (ID: 317)
+----> Type 0: 63201 inputs, 544174 outputs
+----> Type 1: 63238 inputs, 545110 outputs
+----> Type 2: 63426 inputs, 547148 outputs
+----> Type 3: 62842 inputs, 543083 outputs
+----> Type 4: 63059 inputs, 547259 outputs
+----> Type 5: 63320 inputs, 545442 outputs
+----> Type 6: 63203 inputs, 546058 outputs
+----> Type 7: 62907 inputs, 543391 outputs
+----> Type 8: 63539 inputs, 552037 outputs
+----> Type 9: 63089 inputs, 545857 outputs
+Nerve 46 (ID: 318)
+----> Type 0: 62903 inputs, 1308487 outputs
+----> Type 1: 63248 inputs, 1319131 outputs
+----> Type 2: 62985 inputs, 1309891 outputs
+----> Type 3: 62840 inputs, 1306079 outputs
+----> Type 4: 62318 inputs, 1299644 outputs
+----> Type 5: 63429 inputs, 1320756 outputs
+----> Type 6: 62708 inputs, 1308143 outputs
+----> Type 7: 62783 inputs, 1308468 outputs
+----> Type 8: 62693 inputs, 1306462 outputs
+----> Type 9: 62700 inputs, 1303341 outputs
+Nerve 47 (ID: 319)
+----> Type 0: 63083 inputs, 572254 outputs
+----> Type 1: 62551 inputs, 567430 outputs
+----> Type 2: 63155 inputs, 572381 outputs
+----> Type 3: 62836 inputs, 569463 outputs
+----> Type 4: 62977 inputs, 569593 outputs
+----> Type 5: 62854 inputs, 570537 outputs
+----> Type 6: 62556 inputs, 567010 outputs
+----> Type 7: 63080 inputs, 572848 outputs
+----> Type 8: 62997 inputs, 570296 outputs
+----> Type 9: 63152 inputs, 571154 outputs
+Nerve 48 (ID: 320)
+----> Type 0: 63130 inputs, 647792 outputs
+----> Type 1: 63059 inputs, 645391 outputs
+----> Type 2: 63432 inputs, 646180 outputs
+----> Type 3: 62948 inputs, 644699 outputs
+----> Type 4: 62515 inputs, 638771 outputs
+----> Type 5: 63180 inputs, 647524 outputs
+----> Type 6: 63218 inputs, 647833 outputs
+----> Type 7: 62970 inputs, 644459 outputs
+----> Type 8: 62995 inputs, 645087 outputs
+----> Type 9: 63261 inputs, 649415 outputs
+Nerve 49 (ID: 321)
+----> Type 0: 63053 inputs, 584190 outputs
+----> Type 1: 62986 inputs, 582507 outputs
+----> Type 2: 63307 inputs, 586507 outputs
+----> Type 3: 63479 inputs, 587895 outputs
+----> Type 4: 63334 inputs, 583970 outputs
+----> Type 5: 63275 inputs, 585726 outputs
+----> Type 6: 63095 inputs, 584774 outputs
+----> Type 7: 63321 inputs, 582877 outputs
+----> Type 8: 63441 inputs, 586754 outputs
+----> Type 9: 63176 inputs, 581290 outputs
+Nerve 50 (ID: 322)
+----> Type 0: 63175 inputs, 1745283 outputs
+----> Type 1: 63027 inputs, 1748350 outputs
+----> Type 2: 63379 inputs, 1759636 outputs
+----> Type 3: 63349 inputs, 1758774 outputs
+----> Type 4: 63144 inputs, 1749094 outputs
+----> Type 5: 62669 inputs, 1738872 outputs
+----> Type 6: 62637 inputs, 1742325 outputs
+----> Type 7: 63522 inputs, 1762136 outputs
+----> Type 8: 63375 inputs, 1759828 outputs
+----> Type 9: 62800 inputs, 1736991 outputs
+Nerve 51 (ID: 323)
+----> Type 0: 63082 inputs, 3467743 outputs
+----> Type 1: 63325 inputs, 3495240 outputs
+----> Type 2: 62770 inputs, 3456634 outputs
+----> Type 3: 62902 inputs, 3459235 outputs
+----> Type 4: 63002 inputs, 3488955 outputs
+----> Type 5: 63273 inputs, 3492843 outputs
+----> Type 6: 63594 inputs, 3503777 outputs
+----> Type 7: 62999 inputs, 3463716 outputs
+----> Type 8: 62935 inputs, 3465831 outputs
+----> Type 9: 62841 inputs, 3464457 outputs
+Nerve 52 (ID: 324)
+----> Type 0: 63027 inputs, 453375 outputs
+----> Type 1: 62616 inputs, 451628 outputs
+----> Type 2: 63120 inputs, 456335 outputs
+----> Type 3: 62765 inputs, 451204 outputs
+----> Type 4: 62602 inputs, 449976 outputs
+----> Type 5: 63096 inputs, 454420 outputs
+----> Type 6: 63091 inputs, 453304 outputs
+----> Type 7: 62973 inputs, 452164 outputs
+----> Type 8: 62894 inputs, 453792 outputs
+----> Type 9: 63260 inputs, 456703 outputs
+Nerve 53 (ID: 325)
+----> Type 0: 63254 inputs, 629938 outputs
+----> Type 1: 62708 inputs, 624567 outputs
+----> Type 2: 62834 inputs, 625478 outputs
+----> Type 3: 63238 inputs, 629159 outputs
+----> Type 4: 63263 inputs, 630578 outputs
+----> Type 5: 63169 inputs, 629624 outputs
+----> Type 6: 62783 inputs, 624655 outputs
+----> Type 7: 63128 inputs, 626316 outputs
+----> Type 8: 62988 inputs, 627341 outputs
+----> Type 9: 63591 inputs, 633471 outputs
+Nerve 54 (ID: 326)
+----> Type 0: 62585 inputs, 537372 outputs
+----> Type 1: 63617 inputs, 547839 outputs
+----> Type 2: 63095 inputs, 542572 outputs
+----> Type 3: 62875 inputs, 541270 outputs
+----> Type 4: 62971 inputs, 539771 outputs
+----> Type 5: 63084 inputs, 540999 outputs
+----> Type 6: 62985 inputs, 540680 outputs
+----> Type 7: 63319 inputs, 542990 outputs
+----> Type 8: 63172 inputs, 541942 outputs
+----> Type 9: 63432 inputs, 545009 outputs
+Nerve 55 (ID: 327)
+----> Type 0: 62920 inputs, 1987326 outputs
+----> Type 1: 62670 inputs, 1981221 outputs
+----> Type 2: 62818 inputs, 1989729 outputs
+----> Type 3: 62993 inputs, 1985887 outputs
+----> Type 4: 62968 inputs, 1989542 outputs
+----> Type 5: 62690 inputs, 1975322 outputs
+----> Type 6: 62798 inputs, 1981629 outputs
+----> Type 7: 62921 inputs, 1989346 outputs
+----> Type 8: 62795 inputs, 1986892 outputs
+----> Type 9: 63007 inputs, 1973631 outputs
+Nerve 56 (ID: 328)
+----> Type 0: 62869 inputs, 428931 outputs
+----> Type 1: 62909 inputs, 429392 outputs
+----> Type 2: 63018 inputs, 428500 outputs
+----> Type 3: 63020 inputs, 428159 outputs
+----> Type 4: 62763 inputs, 426757 outputs
+----> Type 5: 62778 inputs, 427522 outputs
+----> Type 6: 62930 inputs, 428460 outputs
+----> Type 7: 62860 inputs, 428311 outputs
+----> Type 8: 62850 inputs, 428338 outputs
+----> Type 9: 63248 inputs, 431331 outputs
+Nerve 57 (ID: 329)
+----> Type 0: 63373 inputs, 924171 outputs
+----> Type 1: 63105 inputs, 920736 outputs
+----> Type 2: 63091 inputs, 922014 outputs
+----> Type 3: 63329 inputs, 926692 outputs
+----> Type 4: 63002 inputs, 918058 outputs
+----> Type 5: 63129 inputs, 922770 outputs
+----> Type 6: 63035 inputs, 920455 outputs
+----> Type 7: 63442 inputs, 925087 outputs
+----> Type 8: 62547 inputs, 912798 outputs
+----> Type 9: 62670 inputs, 912880 outputs
+Nerve 58 (ID: 330)
+----> Type 0: 62558 inputs, 553387 outputs
+----> Type 1: 62937 inputs, 557809 outputs
+----> Type 2: 63438 inputs, 562875 outputs
+----> Type 3: 63193 inputs, 562417 outputs
+----> Type 4: 62965 inputs, 560378 outputs
+----> Type 5: 63151 inputs, 560670 outputs
+----> Type 6: 62768 inputs, 557378 outputs
+----> Type 7: 63050 inputs, 559013 outputs
+----> Type 8: 62821 inputs, 556800 outputs
+----> Type 9: 62912 inputs, 558097 outputs
+Nerve 59 (ID: 331)
+----> Type 0: 63049 inputs, 796943 outputs
+----> Type 1: 62978 inputs, 797947 outputs
+----> Type 2: 63101 inputs, 797842 outputs
+----> Type 3: 62846 inputs, 799837 outputs
+----> Type 4: 62821 inputs, 793794 outputs
+----> Type 5: 63016 inputs, 799548 outputs
+----> Type 6: 62449 inputs, 792949 outputs
+----> Type 7: 63033 inputs, 796904 outputs
+----> Type 8: 62575 inputs, 792719 outputs
+----> Type 9: 63003 inputs, 796691 outputs
+Nerve 60 (ID: 332)
+----> Type 0: 62904 inputs, 820108 outputs
+----> Type 1: 62855 inputs, 823855 outputs
+----> Type 2: 63274 inputs, 826985 outputs
+----> Type 3: 63087 inputs, 830361 outputs
+----> Type 4: 63688 inputs, 834248 outputs
+----> Type 5: 62675 inputs, 821826 outputs
+----> Type 6: 63267 inputs, 829194 outputs
+----> Type 7: 63098 inputs, 826158 outputs
+----> Type 8: 62675 inputs, 824384 outputs
+----> Type 9: 63131 inputs, 825260 outputs
+Nerve 61 (ID: 333)
+----> Type 0: 63072 inputs, 1877493 outputs
+----> Type 1: 63140 inputs, 1878545 outputs
+----> Type 2: 63056 inputs, 1871378 outputs
+----> Type 3: 63483 inputs, 1890351 outputs
+----> Type 4: 63194 inputs, 1882228 outputs
+----> Type 5: 62970 inputs, 1875128 outputs
+----> Type 6: 62843 inputs, 1871223 outputs
+----> Type 7: 63168 inputs, 1887444 outputs
+----> Type 8: 62572 inputs, 1864827 outputs
+----> Type 9: 62856 inputs, 1871002 outputs
+Nerve 62 (ID: 334)
+----> Type 0: 62812 inputs, 484747 outputs
+----> Type 1: 63200 inputs, 490420 outputs
+----> Type 2: 62884 inputs, 485171 outputs
+----> Type 3: 63430 inputs, 489350 outputs
+----> Type 4: 62722 inputs, 484931 outputs
+----> Type 5: 62994 inputs, 488505 outputs
+----> Type 6: 63462 inputs, 490801 outputs
+----> Type 7: 62563 inputs, 485743 outputs
+----> Type 8: 63090 inputs, 488198 outputs
+----> Type 9: 63257 inputs, 488125 outputs
+Nerve 63 (ID: 335)
+----> Type 0: 63449 inputs, 604232 outputs
+----> Type 1: 63211 inputs, 603915 outputs
+----> Type 2: 62892 inputs, 599961 outputs
+----> Type 3: 63265 inputs, 606101 outputs
+----> Type 4: 63386 inputs, 603235 outputs
+----> Type 5: 63181 inputs, 601411 outputs
+----> Type 6: 62750 inputs, 598590 outputs
+----> Type 7: 63197 inputs, 604586 outputs
+----> Type 8: 63118 inputs, 601917 outputs
+----> Type 9: 62773 inputs, 598589 outputs
+Nerve 64 (ID: 336)
+----> Type 0: 63168 inputs, 436696 outputs
+----> Type 1: 62875 inputs, 438199 outputs
+----> Type 2: 63035 inputs, 435189 outputs
+----> Type 3: 62715 inputs, 435419 outputs
+----> Type 4: 63062 inputs, 436879 outputs
+----> Type 5: 62559 inputs, 434424 outputs
+----> Type 6: 63069 inputs, 437741 outputs
+----> Type 7: 62894 inputs, 435589 outputs
+----> Type 8: 63025 inputs, 436483 outputs
+----> Type 9: 62791 inputs, 435690 outputs
+Nerve 65 (ID: 337)
+----> Type 0: 62954 inputs, 403436 outputs
+----> Type 1: 63125 inputs, 404091 outputs
+----> Type 2: 62549 inputs, 400695 outputs
+----> Type 3: 62711 inputs, 401267 outputs
+----> Type 4: 63157 inputs, 405815 outputs
+----> Type 5: 62914 inputs, 403372 outputs
+----> Type 6: 62278 inputs, 399087 outputs
+----> Type 7: 62993 inputs, 402804 outputs
+----> Type 8: 62639 inputs, 400939 outputs
+----> Type 9: 62837 inputs, 401568 outputs
+Nerve 66 (ID: 338)
+----> Type 0: 63353 inputs, 529199 outputs
+----> Type 1: 63177 inputs, 527190 outputs
+----> Type 2: 62770 inputs, 523072 outputs
+----> Type 3: 62775 inputs, 522750 outputs
+----> Type 4: 62590 inputs, 521145 outputs
+----> Type 5: 62970 inputs, 523710 outputs
+----> Type 6: 62580 inputs, 520639 outputs
+----> Type 7: 62824 inputs, 522985 outputs
+----> Type 8: 62816 inputs, 524083 outputs
+----> Type 9: 62950 inputs, 523605 outputs
+Nerve 67 (ID: 339)
+----> Type 0: 63112 inputs, 921982 outputs
+----> Type 1: 63157 inputs, 928924 outputs
+----> Type 2: 62369 inputs, 914067 outputs
+----> Type 3: 62661 inputs, 917403 outputs
+----> Type 4: 63150 inputs, 925230 outputs
+----> Type 5: 62830 inputs, 921754 outputs
+----> Type 6: 62909 inputs, 917774 outputs
+----> Type 7: 63474 inputs, 929031 outputs
+----> Type 8: 62884 inputs, 923124 outputs
+----> Type 9: 62731 inputs, 918975 outputs
+Nerve 68 (ID: 340)
+----> Type 0: 62976 inputs, 423354 outputs
+----> Type 1: 63164 inputs, 426163 outputs
+----> Type 2: 63254 inputs, 425991 outputs
+----> Type 3: 63302 inputs, 426420 outputs
+----> Type 4: 63645 inputs, 429118 outputs
+----> Type 5: 63159 inputs, 424741 outputs
+----> Type 6: 62774 inputs, 424668 outputs
+----> Type 7: 63462 inputs, 426560 outputs
+----> Type 8: 63525 inputs, 428746 outputs
+----> Type 9: 62727 inputs, 423565 outputs
+Nerve 69 (ID: 341)
+----> Type 0: 63037 inputs, 457518 outputs
+----> Type 1: 62959 inputs, 458744 outputs
+----> Type 2: 62647 inputs, 454017 outputs
+----> Type 3: 62837 inputs, 454675 outputs
+----> Type 4: 62609 inputs, 457211 outputs
+----> Type 5: 62801 inputs, 457783 outputs
+----> Type 6: 63546 inputs, 461475 outputs
+----> Type 7: 62930 inputs, 455919 outputs
+----> Type 8: 63383 inputs, 460520 outputs
+----> Type 9: 63380 inputs, 459306 outputs
+Nerve 70 (ID: 342)
+----> Type 0: 63369 inputs, 397607 outputs
+----> Type 1: 63138 inputs, 394052 outputs
+----> Type 2: 63790 inputs, 399590 outputs
+----> Type 3: 62897 inputs, 393742 outputs
+----> Type 4: 62800 inputs, 392677 outputs
+----> Type 5: 63268 inputs, 395136 outputs
+----> Type 6: 62741 inputs, 394529 outputs
+----> Type 7: 63196 inputs, 397813 outputs
+----> Type 8: 63183 inputs, 394950 outputs
+----> Type 9: 63142 inputs, 396845 outputs
+Nerve 71 (ID: 343)
+----> Type 0: 63036 inputs, 643081 outputs
+----> Type 1: 63104 inputs, 645274 outputs
+----> Type 2: 63095 inputs, 640302 outputs
+----> Type 3: 63324 inputs, 642886 outputs
+----> Type 4: 62989 inputs, 639592 outputs
+----> Type 5: 62921 inputs, 638176 outputs
+----> Type 6: 62839 inputs, 638506 outputs
+----> Type 7: 62979 inputs, 639374 outputs
+----> Type 8: 62723 inputs, 635473 outputs
+----> Type 9: 62854 inputs, 638720 outputs
+Nerve 72 (ID: 344)
+----> Type 0: 63170 inputs, 689057 outputs
+----> Type 1: 63595 inputs, 688292 outputs
+----> Type 2: 63646 inputs, 691458 outputs
+----> Type 3: 63241 inputs, 689864 outputs
+----> Type 4: 63459 inputs, 689617 outputs
+----> Type 5: 63220 inputs, 690524 outputs
+----> Type 6: 63472 inputs, 692501 outputs
+----> Type 7: 62891 inputs, 684000 outputs
+----> Type 8: 62788 inputs, 683069 outputs
+----> Type 9: 63303 inputs, 688929 outputs
+Nerve 73 (ID: 345)
+----> Type 0: 62861 inputs, 884064 outputs
+----> Type 1: 62949 inputs, 886005 outputs
+----> Type 2: 62860 inputs, 880611 outputs
+----> Type 3: 62936 inputs, 885273 outputs
+----> Type 4: 63042 inputs, 885197 outputs
+----> Type 5: 63048 inputs, 887092 outputs
+----> Type 6: 63019 inputs, 886499 outputs
+----> Type 7: 62929 inputs, 890147 outputs
+----> Type 8: 63161 inputs, 888655 outputs
+----> Type 9: 63062 inputs, 883498 outputs
+Nerve 74 (ID: 346)
+----> Type 0: 62966 inputs, 1628654 outputs
+----> Type 1: 63024 inputs, 1632302 outputs
+----> Type 2: 62759 inputs, 1617092 outputs
+----> Type 3: 63329 inputs, 1635002 outputs
+----> Type 4: 63386 inputs, 1642396 outputs
+----> Type 5: 63053 inputs, 1627402 outputs
+----> Type 6: 63622 inputs, 1642275 outputs
+----> Type 7: 62931 inputs, 1624397 outputs
+----> Type 8: 63198 inputs, 1630596 outputs
+----> Type 9: 63255 inputs, 1641100 outputs
+Nerve 75 (ID: 347)
+----> Type 0: 62751 inputs, 1823150 outputs
+----> Type 1: 62875 inputs, 1821382 outputs
+----> Type 2: 63059 inputs, 1825607 outputs
+----> Type 3: 63326 inputs, 1838661 outputs
+----> Type 4: 63334 inputs, 1831741 outputs
+----> Type 5: 62947 inputs, 1827513 outputs
+----> Type 6: 62913 inputs, 1819939 outputs
+----> Type 7: 62638 inputs, 1819016 outputs
+----> Type 8: 62833 inputs, 1826581 outputs
+----> Type 9: 62686 inputs, 1821753 outputs
+Nerve 76 (ID: 348)
+----> Type 0: 63436 inputs, 438991 outputs
+----> Type 1: 63176 inputs, 436457 outputs
+----> Type 2: 63123 inputs, 437283 outputs
+----> Type 3: 63012 inputs, 435873 outputs
+----> Type 4: 63347 inputs, 436858 outputs
+----> Type 5: 63060 inputs, 436042 outputs
+----> Type 6: 63186 inputs, 435452 outputs
+----> Type 7: 63160 inputs, 435856 outputs
+----> Type 8: 62957 inputs, 434309 outputs
+----> Type 9: 63003 inputs, 434464 outputs
+Nerve 77 (ID: 349)
+----> Type 0: 63053 inputs, 420250 outputs
+----> Type 1: 62979 inputs, 418786 outputs
+----> Type 2: 63041 inputs, 418429 outputs
+----> Type 3: 62916 inputs, 418011 outputs
+----> Type 4: 63240 inputs, 420837 outputs
+----> Type 5: 63117 inputs, 419525 outputs
+----> Type 6: 63349 inputs, 421748 outputs
+----> Type 7: 62844 inputs, 417494 outputs
+----> Type 8: 62435 inputs, 412971 outputs
+----> Type 9: 63382 inputs, 421785 outputs
+Nerve 78 (ID: 350)
+----> Type 0: 62760 inputs, 621865 outputs
+----> Type 1: 62668 inputs, 619479 outputs
+----> Type 2: 62686 inputs, 620428 outputs
+----> Type 3: 62984 inputs, 623334 outputs
+----> Type 4: 62576 inputs, 620612 outputs
+----> Type 5: 62542 inputs, 621014 outputs
+----> Type 6: 63234 inputs, 628871 outputs
+----> Type 7: 62676 inputs, 621773 outputs
+----> Type 8: 63201 inputs, 628409 outputs
+----> Type 9: 63085 inputs, 622459 outputs
+Nerve 79 (ID: 351)
+----> Type 0: 62865 inputs, 599886 outputs
+----> Type 1: 62674 inputs, 597957 outputs
+----> Type 2: 62883 inputs, 598698 outputs
+----> Type 3: 62688 inputs, 596551 outputs
+----> Type 4: 62882 inputs, 597118 outputs
+----> Type 5: 62860 inputs, 597141 outputs
+----> Type 6: 62553 inputs, 599254 outputs
+----> Type 7: 63010 inputs, 601833 outputs
+----> Type 8: 63181 inputs, 600572 outputs
+----> Type 9: 62985 inputs, 601533 outputs
+Nerve 80 (ID: 352)
+----> Type 0: 62993 inputs, 523650 outputs
+----> Type 1: 63102 inputs, 525337 outputs
+----> Type 2: 62690 inputs, 521919 outputs
+----> Type 3: 63365 inputs, 525794 outputs
+----> Type 4: 62812 inputs, 523138 outputs
+----> Type 5: 63095 inputs, 525387 outputs
+----> Type 6: 62872 inputs, 523576 outputs
+----> Type 7: 63625 inputs, 531061 outputs
+----> Type 8: 62915 inputs, 524582 outputs
+----> Type 9: 63262 inputs, 525246 outputs
+Nerve 81 (ID: 353)
+----> Type 0: 62726 inputs, 476188 outputs
+----> Type 1: 62760 inputs, 477007 outputs
+----> Type 2: 63197 inputs, 479538 outputs
+----> Type 3: 62696 inputs, 476405 outputs
+----> Type 4: 62896 inputs, 477039 outputs
+----> Type 5: 63239 inputs, 479708 outputs
+----> Type 6: 63379 inputs, 482141 outputs
+----> Type 7: 62833 inputs, 477225 outputs
+----> Type 8: 62347 inputs, 472408 outputs
+----> Type 9: 62950 inputs, 479594 outputs
+Nerve 82 (ID: 354)
+----> Type 0: 63120 inputs, 1900313 outputs
+----> Type 1: 62877 inputs, 1895917 outputs
+----> Type 2: 63273 inputs, 1902683 outputs
+----> Type 3: 62961 inputs, 1891705 outputs
+----> Type 4: 62862 inputs, 1897893 outputs
+----> Type 5: 63124 inputs, 1908610 outputs
+----> Type 6: 63055 inputs, 1900105 outputs
+----> Type 7: 63129 inputs, 1908902 outputs
+----> Type 8: 63411 inputs, 1904554 outputs
+----> Type 9: 62902 inputs, 1895152 outputs
+Nerve 83 (ID: 355)
+----> Type 0: 63435 inputs, 685557 outputs
+----> Type 1: 62675 inputs, 677888 outputs
+----> Type 2: 63216 inputs, 683910 outputs
+----> Type 3: 63166 inputs, 680871 outputs
+----> Type 4: 62840 inputs, 679259 outputs
+----> Type 5: 62547 inputs, 676489 outputs
+----> Type 6: 63225 inputs, 684721 outputs
+----> Type 7: 62707 inputs, 678016 outputs
+----> Type 8: 62831 inputs, 678694 outputs
+----> Type 9: 62801 inputs, 679859 outputs
+Nerve 84 (ID: 356)
+----> Type 0: 63242 inputs, 1264538 outputs
+----> Type 1: 63381 inputs, 1259990 outputs
+----> Type 2: 63197 inputs, 1262629 outputs
+----> Type 3: 62929 inputs, 1249666 outputs
+----> Type 4: 63091 inputs, 1262075 outputs
+----> Type 5: 63294 inputs, 1265442 outputs
+----> Type 6: 62758 inputs, 1250052 outputs
+----> Type 7: 62792 inputs, 1252841 outputs
+----> Type 8: 63183 inputs, 1264482 outputs
+----> Type 9: 63233 inputs, 1260017 outputs
+Nerve 85 (ID: 357)
+----> Type 0: 62973 inputs, 1256806 outputs
+----> Type 1: 63331 inputs, 1263669 outputs
+----> Type 2: 62557 inputs, 1248110 outputs
+----> Type 3: 63654 inputs, 1270446 outputs
+----> Type 4: 63026 inputs, 1258105 outputs
+----> Type 5: 62859 inputs, 1261584 outputs
+----> Type 6: 62766 inputs, 1260162 outputs
+----> Type 7: 62425 inputs, 1245513 outputs
+----> Type 8: 63214 inputs, 1262025 outputs
+----> Type 9: 62766 inputs, 1247639 outputs
+Nerve 86 (ID: 358)
+----> Type 0: 63552 inputs, 394833 outputs
+----> Type 1: 63166 inputs, 392728 outputs
+----> Type 2: 63269 inputs, 394174 outputs
+----> Type 3: 63187 inputs, 391868 outputs
+----> Type 4: 62985 inputs, 392999 outputs
+----> Type 5: 62727 inputs, 391085 outputs
+----> Type 6: 63193 inputs, 393607 outputs
+----> Type 7: 63725 inputs, 396747 outputs
+----> Type 8: 62843 inputs, 392318 outputs
+----> Type 9: 63215 inputs, 393614 outputs
+Nerve 87 (ID: 359)
+----> Type 0: 62902 inputs, 1021781 outputs
+----> Type 1: 62648 inputs, 1013419 outputs
+----> Type 2: 62730 inputs, 1021675 outputs
+----> Type 3: 62824 inputs, 1022640 outputs
+----> Type 4: 62631 inputs, 1017897 outputs
+----> Type 5: 63500 inputs, 1031537 outputs
+----> Type 6: 63057 inputs, 1024835 outputs
+----> Type 7: 62713 inputs, 1016822 outputs
+----> Type 8: 63621 inputs, 1032476 outputs
+----> Type 9: 62945 inputs, 1021986 outputs
+Nerve 88 (ID: 360)
+----> Type 0: 62905 inputs, 724908 outputs
+----> Type 1: 62902 inputs, 722009 outputs
+----> Type 2: 63354 inputs, 732754 outputs
+----> Type 3: 62735 inputs, 722125 outputs
+----> Type 4: 63474 inputs, 732020 outputs
+----> Type 5: 62687 inputs, 723750 outputs
+----> Type 6: 63012 inputs, 724516 outputs
+----> Type 7: 62785 inputs, 721812 outputs
+----> Type 8: 63072 inputs, 725582 outputs
+----> Type 9: 62703 inputs, 724617 outputs
+Nerve 89 (ID: 361)
+----> Type 0: 62916 inputs, 1157173 outputs
+----> Type 1: 63013 inputs, 1159144 outputs
+----> Type 2: 63334 inputs, 1168376 outputs
+----> Type 3: 63148 inputs, 1157910 outputs
+----> Type 4: 63579 inputs, 1169170 outputs
+----> Type 5: 63336 inputs, 1165271 outputs
+----> Type 6: 63314 inputs, 1164542 outputs
+----> Type 7: 62945 inputs, 1158004 outputs
+----> Type 8: 63447 inputs, 1169374 outputs
+----> Type 9: 63311 inputs, 1161628 outputs
+Nerve 90 (ID: 362)
+----> Type 0: 63451 inputs, 440438 outputs
+----> Type 1: 62903 inputs, 435901 outputs
+----> Type 2: 62854 inputs, 433545 outputs
+----> Type 3: 63287 inputs, 437694 outputs
+----> Type 4: 62890 inputs, 435135 outputs
+----> Type 5: 62834 inputs, 433824 outputs
+----> Type 6: 62960 inputs, 437221 outputs
+----> Type 7: 63298 inputs, 437827 outputs
+----> Type 8: 63133 inputs, 436835 outputs
+----> Type 9: 63592 inputs, 438952 outputs
+Nerve 91 (ID: 363)
+----> Type 0: 62816 inputs, 912262 outputs
+----> Type 1: 62839 inputs, 907415 outputs
+----> Type 2: 63048 inputs, 912121 outputs
+----> Type 3: 63230 inputs, 915896 outputs
+----> Type 4: 63046 inputs, 915159 outputs
+----> Type 5: 62935 inputs, 911976 outputs
+----> Type 6: 63049 inputs, 907992 outputs
+----> Type 7: 63605 inputs, 921872 outputs
+----> Type 8: 62970 inputs, 909953 outputs
+----> Type 9: 63240 inputs, 916602 outputs
+Nerve 92 (ID: 364)
+----> Type 0: 62704 inputs, 1931088 outputs
+----> Type 1: 63366 inputs, 1952263 outputs
+----> Type 2: 62819 inputs, 1939839 outputs
+----> Type 3: 62911 inputs, 1934781 outputs
+----> Type 4: 62758 inputs, 1925614 outputs
+----> Type 5: 62764 inputs, 1930527 outputs
+----> Type 6: 62945 inputs, 1940641 outputs
+----> Type 7: 63142 inputs, 1944401 outputs
+----> Type 8: 63088 inputs, 1939375 outputs
+----> Type 9: 63101 inputs, 1946360 outputs
+Nerve 93 (ID: 365)
+----> Type 0: 62712 inputs, 538550 outputs
+----> Type 1: 63131 inputs, 542080 outputs
+----> Type 2: 62777 inputs, 543745 outputs
+----> Type 3: 62760 inputs, 537006 outputs
+----> Type 4: 63185 inputs, 542752 outputs
+----> Type 5: 62868 inputs, 539335 outputs
+----> Type 6: 62849 inputs, 539848 outputs
+----> Type 7: 62364 inputs, 535485 outputs
+----> Type 8: 63093 inputs, 541332 outputs
+----> Type 9: 62764 inputs, 540830 outputs
+Nerve 94 (ID: 366)
+----> Type 0: 63155 inputs, 532843 outputs
+----> Type 1: 62675 inputs, 526141 outputs
+----> Type 2: 63031 inputs, 529739 outputs
+----> Type 3: 62843 inputs, 528859 outputs
+----> Type 4: 62658 inputs, 524067 outputs
+----> Type 5: 62640 inputs, 526467 outputs
+----> Type 6: 63188 inputs, 531083 outputs
+----> Type 7: 63037 inputs, 530423 outputs
+----> Type 8: 62453 inputs, 524474 outputs
+----> Type 9: 62952 inputs, 529795 outputs
+Nerve 95 (ID: 367)
+----> Type 0: 62944 inputs, 1310186 outputs
+----> Type 1: 62988 inputs, 1304744 outputs
+----> Type 2: 62780 inputs, 1309228 outputs
+----> Type 3: 63107 inputs, 1309090 outputs
+----> Type 4: 62657 inputs, 1304076 outputs
+----> Type 5: 63400 inputs, 1318114 outputs
+----> Type 6: 63429 inputs, 1319212 outputs
+----> Type 7: 62985 inputs, 1310918 outputs
+----> Type 8: 62769 inputs, 1300491 outputs
+----> Type 9: 63337 inputs, 1317293 outputs
+Nerve 96 (ID: 368)
+----> Type 0: 63565 inputs, 412839 outputs
+----> Type 1: 63302 inputs, 407781 outputs
+----> Type 2: 63270 inputs, 410860 outputs
+----> Type 3: 63198 inputs, 409434 outputs
+----> Type 4: 63164 inputs, 409089 outputs
+----> Type 5: 63342 inputs, 410117 outputs
+----> Type 6: 62890 inputs, 406223 outputs
+----> Type 7: 62773 inputs, 406812 outputs
+----> Type 8: 63400 inputs, 410547 outputs
+----> Type 9: 63056 inputs, 408031 outputs
+Nerve 97 (ID: 369)
+----> Type 0: 62989 inputs, 705170 outputs
+----> Type 1: 62718 inputs, 704839 outputs
+----> Type 2: 62787 inputs, 704533 outputs
+----> Type 3: 62611 inputs, 701477 outputs
+----> Type 4: 62699 inputs, 701847 outputs
+----> Type 5: 62349 inputs, 698168 outputs
+----> Type 6: 61985 inputs, 694858 outputs
+----> Type 7: 62552 inputs, 704308 outputs
+----> Type 8: 62842 inputs, 701647 outputs
+----> Type 9: 62634 inputs, 700989 outputs
+Nerve 98 (ID: 370)
+----> Type 0: 63101 inputs, 626887 outputs
+----> Type 1: 62755 inputs, 623633 outputs
+----> Type 2: 62933 inputs, 624966 outputs
+----> Type 3: 62862 inputs, 624738 outputs
+----> Type 4: 62961 inputs, 623459 outputs
+----> Type 5: 63194 inputs, 628892 outputs
+----> Type 6: 63233 inputs, 626679 outputs
+----> Type 7: 62836 inputs, 622933 outputs
+----> Type 8: 63091 inputs, 624612 outputs
+----> Type 9: 63129 inputs, 626782 outputs
+Nerve 99 (ID: 371)
+----> Type 0: 63024 inputs, 668086 outputs
+----> Type 1: 63167 inputs, 666686 outputs
+----> Type 2: 63324 inputs, 670775 outputs
+----> Type 3: 63248 inputs, 665620 outputs
+----> Type 4: 63101 inputs, 666558 outputs
+----> Type 5: 63103 inputs, 668202 outputs
+----> Type 6: 63158 inputs, 666843 outputs
+----> Type 7: 63028 inputs, 664815 outputs
+----> Type 8: 63322 inputs, 670883 outputs
+----> Type 9: 63161 inputs, 666517 outputs
+
+Neuron 0 (ID: 0), total signals received: 2998966
+Neuron 1 (ID: 1), total signals received: 637522
+Neuron 2 (ID: 2), total signals received: 9675708
+Neuron 3 (ID: 3), total signals received: 4189256
+Neuron 4 (ID: 4), total signals received: 7954655
+Neuron 5 (ID: 5), total signals received: 358181
+Neuron 6 (ID: 6), total signals received: 2736435
+Neuron 7 (ID: 7), total signals received: 447353
+Neuron 8 (ID: 8), total signals received: 7681880
+Neuron 9 (ID: 9), total signals received: 6817030
+Neuron 10 (ID: 10), total signals received: 474657
+Neuron 11 (ID: 11), total signals received: 499699
+Neuron 12 (ID: 12), total signals received: 10424908
+Neuron 13 (ID: 13), total signals received: 9166819
+Neuron 14 (ID: 14), total signals received: 561180
+Neuron 15 (ID: 15), total signals received: 6508993
+Neuron 16 (ID: 16), total signals received: 681114
+Neuron 17 (ID: 17), total signals received: 706143
+Neuron 18 (ID: 18), total signals received: 4500777
+Neuron 19 (ID: 19), total signals received: 4140809
+Neuron 20 (ID: 20), total signals received: 907916
+Neuron 21 (ID: 21), total signals received: 457737
+Neuron 22 (ID: 22), total signals received: 6697820
+Neuron 23 (ID: 23), total signals received: 11045552
+Neuron 24 (ID: 24), total signals received: 6027942
+Neuron 25 (ID: 25), total signals received: 2442328
+Neuron 26 (ID: 26), total signals received: 3640071
+Neuron 27 (ID: 27), total signals received: 8018374
+Neuron 28 (ID: 28), total signals received: 3154277
+Neuron 29 (ID: 29), total signals received: 4044348
+Neuron 30 (ID: 30), total signals received: 1001045
+Neuron 31 (ID: 31), total signals received: 3693708
+Neuron 32 (ID: 32), total signals received: 4653669
+Neuron 33 (ID: 33), total signals received: 872788
+Neuron 34 (ID: 34), total signals received: 2840582
+Neuron 35 (ID: 35), total signals received: 1298484
+Neuron 36 (ID: 36), total signals received: 3823433
+Neuron 37 (ID: 37), total signals received: 3669192
+Neuron 38 (ID: 38), total signals received: 1137864
+Neuron 39 (ID: 39), total signals received: 715555
+Neuron 40 (ID: 40), total signals received: 576656
+Neuron 41 (ID: 41), total signals received: 1330986
+Neuron 42 (ID: 42), total signals received: 13118510
+Neuron 43 (ID: 43), total signals received: 8314066
+Neuron 44 (ID: 44), total signals received: 5651534
+Neuron 45 (ID: 45), total signals received: 175572
+Neuron 46 (ID: 46), total signals received: 4077873
+Neuron 47 (ID: 47), total signals received: 1197419
+Neuron 48 (ID: 48), total signals received: 68014
+Neuron 49 (ID: 49), total signals received: 388938
+Neuron 50 (ID: 50), total signals received: 776041
+Neuron 51 (ID: 51), total signals received: 6698142
+Neuron 52 (ID: 52), total signals received: 661684
+Neuron 53 (ID: 53), total signals received: 1035331
+Neuron 54 (ID: 54), total signals received: 4077468
+Neuron 55 (ID: 55), total signals received: 1161248
+Neuron 56 (ID: 56), total signals received: 238391
+Neuron 57 (ID: 57), total signals received: 945500
+Neuron 58 (ID: 58), total signals received: 8912868
+Neuron 59 (ID: 59), total signals received: 9699841
+Neuron 60 (ID: 60), total signals received: 10508811
+Neuron 61 (ID: 61), total signals received: 715135
+Neuron 62 (ID: 62), total signals received: 419305
+Neuron 63 (ID: 63), total signals received: 337922
+Neuron 64 (ID: 64), total signals received: 778254
+Neuron 65 (ID: 65), total signals received: 366164
+Neuron 66 (ID: 66), total signals received: 17698428
+Neuron 67 (ID: 67), total signals received: 843482
+Neuron 68 (ID: 68), total signals received: 972346
+Neuron 69 (ID: 69), total signals received: 404744
+Neuron 70 (ID: 70), total signals received: 4147177
+Neuron 71 (ID: 71), total signals received: 474113
+Neuron 72 (ID: 72), total signals received: 390850
+Neuron 73 (ID: 73), total signals received: 1080393
+Neuron 74 (ID: 74), total signals received: 811509
+Neuron 75 (ID: 75), total signals received: 2995561
+Neuron 76 (ID: 76), total signals received: 990900
+Neuron 77 (ID: 77), total signals received: 1047184
+Neuron 78 (ID: 78), total signals received: 8730948
+Neuron 79 (ID: 79), total signals received: 630507
+Neuron 80 (ID: 80), total signals received: 3893862
+Neuron 81 (ID: 81), total signals received: 1250920
+Neuron 82 (ID: 82), total signals received: 538200
+Neuron 83 (ID: 83), total signals received: 691141
+Neuron 84 (ID: 84), total signals received: 4350965
+Neuron 85 (ID: 85), total signals received: 547102
+Neuron 86 (ID: 86), total signals received: 3472738
+Neuron 87 (ID: 87), total signals received: 6034017
+Neuron 88 (ID: 88), total signals received: 18397860
+Neuron 89 (ID: 89), total signals received: 3699732
+Neuron 90 (ID: 90), total signals received: 705206
+Neuron 91 (ID: 91), total signals received: 641056
+Neuron 92 (ID: 92), total signals received: 4020341
+Neuron 93 (ID: 93), total signals received: 682346
+Neuron 94 (ID: 94), total signals received: 9549834
+Neuron 95 (ID: 95), total signals received: 5402292
+Neuron 96 (ID: 96), total signals received: 878470
+Neuron 97 (ID: 97), total signals received: 8789239
+Neuron 98 (ID: 98), total signals received: 447560
+Neuron 99 (ID: 99), total signals received: 337637
+Neuron 100 (ID: 100), total signals received: 932744
+Neuron 101 (ID: 101), total signals received: 3756850
+Neuron 102 (ID: 102), total signals received: 5199800
+Neuron 103 (ID: 103), total signals received: 603563
+Neuron 104 (ID: 104), total signals received: 921527
+Neuron 105 (ID: 105), total signals received: 364181
+Neuron 106 (ID: 106), total signals received: 2819678
+Neuron 107 (ID: 107), total signals received: 4217984
+Neuron 108 (ID: 108), total signals received: 4107354
+Neuron 109 (ID: 109), total signals received: 4958577
+Neuron 110 (ID: 110), total signals received: 6900152
+Neuron 111 (ID: 111), total signals received: 4375099
+Neuron 112 (ID: 112), total signals received: 351197
+Neuron 113 (ID: 113), total signals received: 870378
+Neuron 114 (ID: 114), total signals received: 6648380
+Neuron 115 (ID: 115), total signals received: 5049390
+Neuron 116 (ID: 116), total signals received: 3581225
+Neuron 117 (ID: 117), total signals received: 547137
+Neuron 118 (ID: 118), total signals received: 4670337
+Neuron 119 (ID: 119), total signals received: 5762885
+Neuron 120 (ID: 120), total signals received: 9431405
+Neuron 121 (ID: 121), total signals received: 6060044
+Neuron 122 (ID: 122), total signals received: 564533
+Neuron 123 (ID: 123), total signals received: 4579101
+Neuron 124 (ID: 124), total signals received: 482479
+Neuron 125 (ID: 125), total signals received: 2912361
+Neuron 126 (ID: 126), total signals received: 7500178
+Neuron 127 (ID: 127), total signals received: 3145166
+Neuron 128 (ID: 128), total signals received: 1294047
+Neuron 129 (ID: 129), total signals received: 6654781
+Neuron 130 (ID: 130), total signals received: 824861
+Neuron 131 (ID: 131), total signals received: 5764522
+Neuron 132 (ID: 132), total signals received: 3094499
+Neuron 133 (ID: 133), total signals received: 5807408
+Neuron 134 (ID: 134), total signals received: 13682729
+Neuron 135 (ID: 135), total signals received: 909115
+Neuron 136 (ID: 136), total signals received: 5281519
+Neuron 137 (ID: 137), total signals received: 583840
+Neuron 138 (ID: 138), total signals received: 673345
+Neuron 139 (ID: 139), total signals received: 7001741
+Neuron 140 (ID: 140), total signals received: 10923285
+Neuron 141 (ID: 141), total signals received: 2642171
+Neuron 142 (ID: 142), total signals received: 4701910
+Neuron 143 (ID: 143), total signals received: 10395931
+Neuron 144 (ID: 144), total signals received: 608854
+Neuron 145 (ID: 145), total signals received: 654235
+Neuron 146 (ID: 146), total signals received: 3777892
+Neuron 147 (ID: 147), total signals received: 789713
+Neuron 148 (ID: 148), total signals received: 584121
+Neuron 149 (ID: 149), total signals received: 8389530
+Neuron 150 (ID: 150), total signals received: 706486
+Neuron 151 (ID: 151), total signals received: 13121210
+Neuron 152 (ID: 152), total signals received: 607899
+Neuron 153 (ID: 153), total signals received: 2670641
+Neuron 154 (ID: 154), total signals received: 3159953
+Neuron 155 (ID: 155), total signals received: 2081149
+Neuron 156 (ID: 156), total signals received: 389728
+Neuron 157 (ID: 157), total signals received: 5280588
+Neuron 158 (ID: 158), total signals received: 9773323
+Neuron 159 (ID: 159), total signals received: 5461535
+Neuron 160 (ID: 160), total signals received: 951948
+Neuron 161 (ID: 161), total signals received: 3980470
+Neuron 162 (ID: 162), total signals received: 1095103
+Neuron 163 (ID: 163), total signals received: 3629744
+Neuron 164 (ID: 164), total signals received: 6977010
+Neuron 165 (ID: 165), total signals received: 620534
+Neuron 166 (ID: 166), total signals received: 743618
+Neuron 167 (ID: 167), total signals received: 3189196
+Neuron 168 (ID: 168), total signals received: 9267606
+Neuron 169 (ID: 169), total signals received: 721069
+Neuron 170 (ID: 170), total signals received: 8301799
+Neuron 171 (ID: 171), total signals received: 3579725
+Neuron 172 (ID: 172), total signals received: 4217154
+Neuron 173 (ID: 173), total signals received: 2772859
+Neuron 174 (ID: 174), total signals received: 7998657
+Neuron 175 (ID: 175), total signals received: 4229090
+Neuron 176 (ID: 176), total signals received: 500499
+Neuron 177 (ID: 177), total signals received: 576220
+Neuron 178 (ID: 178), total signals received: 550669
+Neuron 179 (ID: 179), total signals received: 3552577
+Neuron 180 (ID: 180), total signals received: 3568889
+Neuron 181 (ID: 181), total signals received: 875101
+Neuron 182 (ID: 182), total signals received: 8270481
+Neuron 183 (ID: 183), total signals received: 847130
+Neuron 184 (ID: 184), total signals received: 2940792
+Neuron 185 (ID: 185), total signals received: 621342
+Neuron 186 (ID: 186), total signals received: 7177459
+Neuron 187 (ID: 187), total signals received: 6825770
+Neuron 188 (ID: 188), total signals received: 501902
+Neuron 189 (ID: 189), total signals received: 3990874
+Neuron 190 (ID: 190), total signals received: 4126875
+Neuron 191 (ID: 191), total signals received: 10919289
+Neuron 192 (ID: 192), total signals received: 5113667
+Neuron 193 (ID: 193), total signals received: 350220
+Neuron 194 (ID: 194), total signals received: 384717
+Neuron 195 (ID: 195), total signals received: 383468
+Neuron 196 (ID: 196), total signals received: 872827
+Neuron 197 (ID: 197), total signals received: 6343625
+Neuron 198 (ID: 198), total signals received: 10768640
+Neuron 199 (ID: 199), total signals received: 294905
+Neuron 200 (ID: 200), total signals received: 1290067
+Neuron 201 (ID: 201), total signals received: 951489
+Neuron 202 (ID: 202), total signals received: 6094503
+Neuron 203 (ID: 203), total signals received: 689540
+Neuron 204 (ID: 204), total signals received: 6914083
+Neuron 205 (ID: 205), total signals received: 4623763
+Neuron 206 (ID: 206), total signals received: 704805
+Neuron 207 (ID: 207), total signals received: 10572044
+Neuron 208 (ID: 208), total signals received: 752105
+Neuron 209 (ID: 209), total signals received: 10204083
+Neuron 210 (ID: 210), total signals received: 624330
+Neuron 211 (ID: 211), total signals received: 3774729
+Neuron 212 (ID: 212), total signals received: 4464657
+Neuron 213 (ID: 213), total signals received: 4159884
+Neuron 214 (ID: 214), total signals received: 796323
+Neuron 215 (ID: 215), total signals received: 5882766
+Neuron 216 (ID: 216), total signals received: 9343482
+Neuron 217 (ID: 217), total signals received: 6748218
+Neuron 218 (ID: 218), total signals received: 320245
+Neuron 219 (ID: 219), total signals received: 443912
+Neuron 220 (ID: 220), total signals received: 4624535
+Neuron 221 (ID: 221), total signals received: 340935
+Neuron 222 (ID: 222), total signals received: 279784
+Neuron 223 (ID: 223), total signals received: 750003
+Neuron 224 (ID: 224), total signals received: 625319
+Neuron 225 (ID: 225), total signals received: 274698
+Neuron 226 (ID: 226), total signals received: 4350998
+Neuron 227 (ID: 227), total signals received: 656367
+Neuron 228 (ID: 228), total signals received: 876063
+Neuron 229 (ID: 229), total signals received: 12667257
+Neuron 230 (ID: 230), total signals received: 2731244
+Neuron 231 (ID: 231), total signals received: 3672696
+Neuron 232 (ID: 232), total signals received: 1406938
+Neuron 233 (ID: 233), total signals received: 508958
+Neuron 234 (ID: 234), total signals received: 10702344
+Neuron 235 (ID: 235), total signals received: 549977
+Neuron 236 (ID: 236), total signals received: 6802991
+Neuron 237 (ID: 237), total signals received: 9563691
+Neuron 238 (ID: 238), total signals received: 545182
+Neuron 239 (ID: 239), total signals received: 672330
+Neuron 240 (ID: 240), total signals received: 606297
+Neuron 241 (ID: 241), total signals received: 358818
+Neuron 242 (ID: 242), total signals received: 710417
+Neuron 243 (ID: 243), total signals received: 3574928
+Neuron 244 (ID: 244), total signals received: 1357944
+Neuron 245 (ID: 245), total signals received: 884354
+Neuron 246 (ID: 246), total signals received: 758345
+Neuron 247 (ID: 247), total signals received: 4362930
+Neuron 248 (ID: 248), total signals received: 792293
+Neuron 249 (ID: 249), total signals received: 21119503
+Neuron 250 (ID: 250), total signals received: 18961491
+Neuron 251 (ID: 251), total signals received: 701470
+Neuron 252 (ID: 252), total signals received: 308163
+Neuron 253 (ID: 253), total signals received: 3154010
+Neuron 254 (ID: 254), total signals received: 442184
+Neuron 255 (ID: 255), total signals received: 1154036
+Neuron 256 (ID: 256), total signals received: 817479
+Neuron 257 (ID: 257), total signals received: 15768039
+Neuron 258 (ID: 258), total signals received: 862426
+Neuron 259 (ID: 259), total signals received: 2640633
+Neuron 260 (ID: 260), total signals received: 3416715
+Neuron 261 (ID: 261), total signals received: 5177351
+Neuron 262 (ID: 262), total signals received: 342758
+Neuron 263 (ID: 263), total signals received: 6028110
+Neuron 264 (ID: 264), total signals received: 685359
+Neuron 265 (ID: 265), total signals received: 919837
+Neuron 266 (ID: 266), total signals received: 16589324
+Neuron 267 (ID: 267), total signals received: 5703130
+Neuron 268 (ID: 268), total signals received: 12790449
+Neuron 269 (ID: 269), total signals received: 3963820
+Neuron 270 (ID: 270), total signals received: 4001940
+Neuron 271 (ID: 271), total signals received: 2968866
