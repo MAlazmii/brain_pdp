@@ -83,7 +83,7 @@ After simulation, a file named `summary_report` is generated. It contains:
 ## Example Run (on Cirrus or local MPI system)
 
 ```bash
-mpirun -np 8 ./brain_serial ../large 10
+mpirun -np 8 ./brain_mpi ../large 5
 ```
 
 
