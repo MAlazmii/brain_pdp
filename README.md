@@ -86,4 +86,7 @@ After simulation, a file named `summary_report` is generated. It contains:
 mpirun -np 8 ./brain_mpi ../large 5
 ```
 
+## License
+
+This project is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
 
