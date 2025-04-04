@@ -1,92 +1,146 @@
-# Parallel Brain Simulation (MPI-based)
+# Molecular Dynamics Simulation – README
 
-This project implements a parallel simulation of a biologically-inspired brain model using **MPI (Message Passing Interface)**. The goal is to simulate neuron and nerve signal propagation across a distributed system using an **event-based coordination** pattern.
+## Project Overview
 
-The original serial code was transformed into a scalable parallel version with proper MPI communication, node partitioning, and signal handling across ranks. The simulation uses structured input files to describe neurons, nerves, and their connections (edges), and produces summary output reports with signal statistics for analysis.
+This project implements a gravitational N-body simulation with forces including central attraction, pairwise interactions, viscosity, and wind. The code has been optimized for performance using vectorization, inlining, and interprocedural optimizations. The simulation tracks the motion and collision behavior of particles over a series of timesteps.
 
 ---
 
-## Compilation
+## Compilation & Build Instructions
 
-To compile the MPI-based simulation:
+### Required Modules on Cirrus
+Before compiling, load the required Intel compiler modules:
 
 ```bash
+module load oneapi
+module load compiler
+```
+
+### Compilation
+
+To compile the project:
+
+```bash
+make clean
 make
 ```
 
-This will produce an executable called `brain_mpi`.
-
-You can also manually compile with:
+### Compilation Flags Used
 
 ```bash
-mpicc -O2 -Wall -o brain_mpi main.c neuron.c input_loader.c event_handler.c signal.c
+-O3 -ipo -qopt-report=max -qopt-report-phase=vec,loop,ipo
 ```
 
-Additionally, ensure you load the necessary modules:
+Final optimization step used:
 
 ```bash
-module load openmpi/4.1.6
-module load gcc/10.2.0
+-Ofast -ipo -xHost
 ```
+
+These flags enable aggressive optimizations, including interprocedural optimizations (`-ipo`) and architecture-specific tuning (`-xHost`).
+
+---
 
 ## Running the Simulation
 
-Execute using `mpirun` with the desired number of MPI processes:
+### Default Execution
 
 ```bash
-mpirun -np <num_processes> ./brain_serial <input_file> <simulation_duration_ns>
+./MD
 ```
 
-Example:
+This will run the simulation using the settings specified in `input.dat`.
 
-```bash
-mpirun -np 4 ./brain_serial ../small 5
-```
+### Input File
 
-- `<input_file>`: Path to the brain graph input file.
-- `<simulation_duration_ns>`: Number of nanoseconds to simulate.
+- `input.dat`: Contains initial particle positions, velocities, and simulation parameters.
 
----
-## Input Format
+### Output Files
 
-The input graph file consists of:
-
-- Neuron/Nerve definitions with:
-  - `<neuron>` or `<nerve>`, followed by `<id>`, `<x>`, `<y>`, `<z>`, `<type>`
-- Edge definitions with:
-  - `<edge>`, `<from>`, `<to>`, `<direction>`, `<max_value>`, `<weighting_*>`
-
-Example node block:
-```xml
-<neuron>
-  <id>1</id>
-  <x>0.5</x>
-  <y>0.1</y>
-  <z>0.8</z>
-  <type>sensory</type>
-</neuron>
-```
+- `output.dat100`, `output.dat200`, ..., `output.dat500`: Simulation output files after different numbers of timesteps.
+- `output_reference.dat`: The original unoptimized baseline reference output.
+- `gprof_report.txt`: If profiling is enabled with `-pg`.
 
 ---
 
-## Output
+## Correctness Validation
 
-After simulation, a file named `summary_report` is generated. It contains:
+To validate correctness:
 
-- Total number of neurons, nerves, and edges
-- Input/output signal breakdown per nerve
-- Total signal count received by each neuron
+```bash
+./diff-output output_reference.dat output.dat100
+```
+
+You should see:
+
+```bash
+max=0.000000
+```
+
+Also check for invalid values:
+
+```bash
+grep NaN output.dat100
+```
+
+Check difference lines:
+
+```bash
+./diff-output output_reference.dat output.dat100 | wc -l
+```
+
+Expected result for a perfect match is `1` (just the header line).
+
+For later steps:
+
+```bash
+for step in 100 200 300 400 500; do
+  echo -n "output.dat$step: "
+  ./diff-output output_reference.dat output.dat$step | grep max=
+done
+```
 
 ---
 
+## Performance Notes
 
-## Example Run (on Cirrus or local MPI system)
+- `-O0`: Baseline execution time ~152.78 seconds (100 timesteps)
+- `-O3 -ipo`: Optimized time ~16.99 seconds
+- `-Ofast -ipo -xHost`: Final optimized time ~**3.60 seconds**
 
-```bash
-mpirun -np 8 ./brain_mpi ../large 5
+Collision count shows stable physical behavior:
+
+```
+timestep 100
+collisions 68404
+100 timesteps took 3.603098 seconds
+500 timesteps took 18.308584 seconds
 ```
 
-## License
+---
 
-This project is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
+## File Descriptions
 
+| File                     | Description                                      |
+|--------------------------|--------------------------------------------------|
+| `MD.c`                  | Main simulation code                             |
+| `control.c` / `control.o`| I/O and control logic                            |
+| `util.c` / `util.o`     | Utility functions                                |
+| `coord.h`               | Global declarations                              |
+| `Makefile`              | Compilation instructions                         |
+| `input.dat`             | Simulation input                                 |
+| `output.dat*`           | Simulation outputs for different steps           |
+| `output_reference.dat`  | Reference output for correctness validation      |
+| `diff-output`           | Tool for comparing output files                  |
+| `gprof_report.txt`      | Performance report (if profiling enabled)        |
+
+---
+
+## Validation Summary
+
+| Timestep | max= Difference | Diff Lines | Interpretation                          |
+|----------|------------------|------------|------------------------------------------|
+| 100      | 0.000000         | 1          | Perfect match                          |
+| 200-500  | Increasing       | ~16,400    | Floating-point drift due to chaos      |
+
+---
