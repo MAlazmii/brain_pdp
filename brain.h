@@ -17,7 +17,7 @@
 #define MAX_NODE_ID 2048
 #define MAX_RANDOM_NERVE_SIGNALS_TO_FIRE 20
 #define MAX_SIGNAL_VALUE 1000
-#define OUTPUT_REPORT_FILENAME "summary_report"
+#define OUTPUT_REPORT_FILENAME "summary_report.generated"
 
 // -------------------------------
 // Enumerations
@@ -97,6 +97,12 @@ extern int *id_to_index;
 // -------------------------------
 // MPI Signal Type
 // -------------------------------
+typedef struct {
+    int type;
+    int target;
+    float value;
+} PackedSignal;
+
 extern MPI_Datatype MPI_PackedSignal;
 void create_mpi_signal_type();
 
@@ -131,6 +137,7 @@ void initialize_random();
 // -------------------------------
 void sendSignalToRank(int tgt_idx, struct SignalStruct signal, int rank, int size);
 void receiveIncomingSignals(int rank);
+void synchronizeSignals(int rank);
 void handle_event(Event *event);
 
 // -------------------------------

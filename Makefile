@@ -1,20 +1,21 @@
-# Makefile for Brain Simulation
-CC = gcc
-CFLAGS = -O2 -Wall
-LDFLAGS =
+CC ?= cc
+MPICC ?= mpicc
+CFLAGS ?= -O2 -Wall -Wextra
+MPI_SRC = main.c input_loader.c neuron.c event_handler.c simulation_utils.c
 
-SRC = main.c input_loader.c neuron.c signal.c
-OBJ = $(SRC:.c=.o)
-EXE = brain_serial
+.PHONY: all serial mpi clean test
+all: serial
+serial: brain_serial
+mpi: brain_mpi
 
-all: $(EXE)
+brain_serial: code.c
+	$(CC) $(CFLAGS) -o $@ $<
 
-$(EXE): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+brain_mpi: $(MPI_SRC) brain.h
+	$(MPICC) $(CFLAGS) -o $@ $(MPI_SRC)
 
-%.o: %.c brain.h
-	$(CC) $(CFLAGS) -c $<
+test:
+	python -m pytest --rootdir=. tests
 
 clean:
-	rm -f *.o $(EXE)
-
+	rm -f *.o brain_serial brain_mpi

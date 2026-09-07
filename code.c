@@ -12,7 +12,7 @@
 #define SIGNAL_INBOX_SIZE 200
 #define MAX_RANDOM_NERVE_SIGNALS_TO_FIRE 20
 #define MAX_SIGNAL_VALUE 1000
-#define OUTPUT_REPORT_FILENAME "summary_report"
+#define OUTPUT_REPORT_FILENAME "summary_report.generated"
 
 enum ReadMode {
   NONE,
@@ -240,6 +240,8 @@ static void handleSignal(int node_idx, float signal, int signal_type) {
  * Fires a signal from either a neuron or nerve
  **/
 static void fireSignal(int node_idx, float signal, int signal_type) {
+  // Terminal neurons receive signals but have no outgoing edge to select.
+  if (brain_nodes[node_idx].num_edges == 0) return;
   while (signal >= 0.001) {
     // Needs to be slightly above 0.0 due to rounding
     int edge_to_use=getRandomInteger(0, brain_nodes[node_idx].num_edges);

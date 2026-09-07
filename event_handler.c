@@ -22,11 +22,14 @@ extern int num_brain_nodes;
 // -------------------------------
 // Struct for MPI Communication
 // -------------------------------
-typedef struct {
-    int type;
-    int target;
-    float value;
-} PackedSignal;
+typedef struct PendingSignal {
+    PackedSignal data;
+    MPI_Request request;
+    struct PendingSignal *next;
+} PendingSignal;
+static PendingSignal *pending = NULL;
+static long sent_count = 0, received_count = 0;
+
 
 // -------------------------------
 // Get the owning MPI rank of a neuron by its ID
@@ -56,6 +59,7 @@ int getOwnerRankById(int id) {
 // Send a signal to a local or remote neuron
 // -------------------------------
 void sendSignalToRank(int tgt_id, struct SignalStruct signal, int sender_rank, int world_size) {
+    (void)world_size;
     int owner = getOwnerRankById(tgt_id);
     if (owner == -1) {
         fprintf(stderr, "[Rank %d] Could not determine owner rank for ID %d\n", sender_rank, tgt_id);
@@ -80,8 +84,14 @@ void sendSignalToRank(int tgt_id, struct SignalStruct signal, int sender_rank, i
 
     } else {
         // --- Remote delivery ---
-        PackedSignal packed = { .type = signal.type, .target = tgt_id, .value = signal.value };
-        MPI_Send(&packed, 1, MPI_PackedSignal, owner, TAG_SIGNAL, MPI_COMM_WORLD);
+        PendingSignal *item = malloc(sizeof(*item));
+        if (!item) MPI_Abort(MPI_COMM_WORLD, 1);
+        item->data = (PackedSignal){signal.type, tgt_id, signal.value};
+        item->next = pending;
+        pending = item;
+        MPI_Isend(&item->data, 1, MPI_PackedSignal, owner, TAG_SIGNAL,
+                  MPI_COMM_WORLD, &item->request);
+        sent_count++;
     }
 }
 
@@ -100,6 +110,7 @@ void receiveIncomingSignals(int current_rank) {
         PackedSignal recv_signal;
         MPI_Recv(&recv_signal, 1, MPI_PackedSignal, status.MPI_SOURCE, TAG_SIGNAL, MPI_COMM_WORLD, &status);
 
+        received_count++;
         int tgt_id = recv_signal.target;
 
         // Validate incoming signal target
@@ -118,6 +129,25 @@ void receiveIncomingSignals(int current_rank) {
         Event ev = { .type = EVENT_TYPE_SIGNAL, .target = tgt_idx, .signal = signal };
         handle_event(&ev);
     }
+}
+
+/* Complete this iteration's deliveries before any rank advances or exits.
+ * Waiting only for sends is insufficient: eager sends may finish before receive.
+ */
+void synchronizeSignals(int current_rank) {
+    long expected, delivered;
+    MPI_Allreduce(&sent_count, &expected, 1, MPI_LONG, MPI_SUM, MPI_COMM_WORLD);
+    do {
+        receiveIncomingSignals(current_rank);
+        MPI_Allreduce(&received_count, &delivered, 1, MPI_LONG, MPI_SUM, MPI_COMM_WORLD);
+    } while (delivered < expected);
+    while (pending) {
+        PendingSignal *item = pending;
+        MPI_Wait(&item->request, MPI_STATUS_IGNORE);
+        pending = item->next;
+        free(item);
+    }
+    sent_count = received_count = 0;
 }
 
 // -------------------------------

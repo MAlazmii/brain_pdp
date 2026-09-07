@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
+#include <math.h>
 #include "brain.h"
 
 // -------------------------------
@@ -21,7 +22,7 @@ void loadBrainGraph(char *filename) {
     FILE *file = fopen(filename, "r");
     if (!file) {
         fprintf(stderr, "[Rank %d] Could not open file %s\n", rank, filename);
-        exit(EXIT_FAILURE);
+        MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
     }
 
     const char whitespace[] = " \f\n\r\t\v";
@@ -34,7 +35,7 @@ void loadBrainGraph(char *filename) {
     edges = calloc(edge_capacity, sizeof(struct EdgeStruct));
     if (!brain_nodes || !edges) {
         fprintf(stderr, "[Rank %d]Memory allocation failed\n", rank);
-        exit(EXIT_FAILURE);
+        MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
     }
 
     // Initialize ID-to-index map
@@ -61,7 +62,7 @@ void loadBrainGraph(char *filename) {
                 brain_nodes = realloc(brain_nodes, node_capacity * sizeof(struct NeuronNerveStruct));
                 if (!brain_nodes) {
                     fprintf(stderr, "[Rank %d] realloc failed for brain_nodes\n", rank);
-                    exit(EXIT_FAILURE);
+                    MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
                 }
             }
 
@@ -73,7 +74,7 @@ void loadBrainGraph(char *filename) {
             node->num_nerve_outputs = calloc(NUM_SIGNAL_TYPES, sizeof(int));
             if (!node->signalInbox || !node->num_nerve_inputs || !node->num_nerve_outputs) {
                 fprintf(stderr, "[Rank %d] Allocation failed for node[%d]\n", rank, currentNeuronIdx);
-                exit(EXIT_FAILURE);
+                MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
             }
 
             node->node_type = (strncmp("<neuron>", line_contents, 8) == 0) ? NEURON : NERVE;
@@ -92,19 +93,30 @@ void loadBrainGraph(char *filename) {
                 edges = realloc(edges, edge_capacity * sizeof(struct EdgeStruct));
                 if (!edges) {
                     fprintf(stderr, "[Rank %d] realloc failed for edges\n", rank);
-                    exit(EXIT_FAILURE);
+                    MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
                 }
             }
 
+            memset(&edges[currentEdgeIdx], 0, sizeof(struct EdgeStruct));
             edges[currentEdgeIdx].messageTypeWeightings = calloc(NUM_SIGNAL_TYPES, sizeof(float));
             if (!edges[currentEdgeIdx].messageTypeWeightings) {
                 fprintf(stderr, "[Rank %d] Failed to allocate weightings for edge %d\n", rank, currentEdgeIdx);
-                exit(EXIT_FAILURE);
+                MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
             }
 
         // --- End edge definition ---
         } else if (strncmp("</edge>", line_contents, 7) == 0 && currentMode == EDGE) {
+            if (!isfinite(edges[currentEdgeIdx].max_value) || !(edges[currentEdgeIdx].max_value > 0)) {
+                fprintf(stderr, "Edge capacity must be positive\n");
+                MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
+            }
             currentMode = NONE;
+            for (int type = 0; type < NUM_SIGNAL_TYPES; type++) {
+                if (!isfinite(edges[currentEdgeIdx].messageTypeWeightings[type])) {
+                    fprintf(stderr, "Edge weights must be finite\n");
+                    MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
+                }
+            }
             currentEdgeIdx++;
 
         // --- Node properties ---
@@ -112,9 +124,9 @@ void loadBrainGraph(char *filename) {
             int id = atoi(strstr(line_contents, ">") + 1);
             brain_nodes[currentNeuronIdx].id = id;
 
-            if (id >= MAX_NODE_ID) {
+            if (id < 0 || id >= MAX_NODE_ID || id_to_index_map[id] != -1) {
                 fprintf(stderr, "[Rank %d] Node ID %d exceeds max supported (%d)\n", rank, id, MAX_NODE_ID);
-                exit(EXIT_FAILURE);
+                MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
             }
 
             id_to_index_map[id] = currentNeuronIdx;
@@ -139,7 +151,7 @@ void loadBrainGraph(char *filename) {
                 else if (strncmp(type, "multipolar", 10) == 0) brain_nodes[currentNeuronIdx].neuron_type = MULTIPOLAR;
                 else {
                     fprintf(stderr, "[Rank %d] Unknown neuron type: %s\n", rank, type);
-                    exit(EXIT_FAILURE);
+                    MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
                 }
             }
 
@@ -198,21 +210,21 @@ void linkNodesToEdges() {
         int edge_count = 0;
 
         for (int j = 0; j < num_edges; j++) {
-            if (edges[j].from == id || edges[j].to == id) {
+            if (edges[j].from == id || (edges[j].direction == BIDIRECTIONAL && edges[j].to == id)) {
                 edge_count++;
             }
         }
 
         brain_nodes[i].num_edges = edge_count;
         brain_nodes[i].edges = malloc(edge_count * sizeof(int));
-        if (!brain_nodes[i].edges) {
+        if (edge_count && !brain_nodes[i].edges) {
             fprintf(stderr, "[Rank %d] Failed to allocate edges for node ID %d\n", rank, id);
-            exit(EXIT_FAILURE);
+            MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
         }
 
         int count = 0;
         for (int j = 0; j < num_edges; j++) {
-            if (edges[j].from == id || edges[j].to == id) {
+            if (edges[j].from == id || (edges[j].direction == BIDIRECTIONAL && edges[j].to == id)) {
                 brain_nodes[i].edges[count++] = j;
             }
         }

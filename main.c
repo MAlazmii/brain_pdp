@@ -8,6 +8,8 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
+#include <errno.h>
+#include <limits.h>
 
 // Global brain data
 struct NeuronNerveStruct *brain_nodes = NULL;
@@ -36,71 +38,25 @@ int main(int argc, char **argv) {
         return EXIT_FAILURE;
     }
 
-    srand((unsigned)(time(NULL) + rank));
+    char *end;
+    errno = 0;
+    long duration = strtol(argv[2], &end, 10);
+    if (errno || *end || end == argv[2] || duration < 0 || duration > INT_MAX) {
+        if (rank == 0) fprintf(stderr, "Duration must be a nonnegative integer\n");
+        MPI_Type_free(&MPI_PackedSignal);
+        MPI_Finalize();
+        return EXIT_FAILURE;
+    }
+    srand(42u + (unsigned)rank);
 
+    /* Every rank needs graph connectivity, but updates only its owned nodes. */
     id_to_index_map = malloc(sizeof(int) * MAX_NODE_ID);
-    if (!id_to_index_map) {
-        fprintf(stderr, "[Rank %d] Failed to allocate id_to_index_map\n", rank);
-        MPI_Abort(MPI_COMM_WORLD, 1);
-    }
-
-    if (rank == 0) {
-        loadBrainGraph(argv[1]);
-        linkNodesToEdges();
-    }
-
-    MPI_Bcast(id_to_index_map, MAX_NODE_ID, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Bcast(&num_brain_nodes, 1, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Bcast(&num_neurons, 1, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Bcast(&num_nerves, 1, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Bcast(&num_edges, 1, MPI_INT, 0, MPI_COMM_WORLD);
-
     id_to_index = malloc(sizeof(int) * MAX_NODE_ID);
-    if (!id_to_index) {
-        fprintf(stderr, "[Rank %d] Failed to allocate id_to_index\n", rank);
-        MPI_Abort(MPI_COMM_WORLD, 1);
-    }
+    if (!id_to_index_map || !id_to_index) MPI_Abort(MPI_COMM_WORLD, 1);
+    loadBrainGraph(argv[1]);
+    linkNodesToEdges();
+    if (!num_brain_nodes) MPI_Abort(MPI_COMM_WORLD, 1);
     memcpy(id_to_index, id_to_index_map, sizeof(int) * MAX_NODE_ID);
-    for (int i = 0; i < MAX_NODE_ID; i++)
-        id_to_index_map[i] = -1;
-
-    if (rank != 0) {
-        brain_nodes = calloc(num_brain_nodes, sizeof(struct NeuronNerveStruct));
-        edges = calloc(1, sizeof(struct EdgeStruct)); // Dummy
-        if (!brain_nodes || !edges) {
-            fprintf(stderr, "[Rank %d] Allocation failure for brain_nodes or edges\n", rank);
-            MPI_Abort(MPI_COMM_WORLD, 1);
-        }
-    }
-
-    for (int i = 0; i < num_brain_nodes; i++) {
-        MPI_Bcast(&brain_nodes[i].id, 1, MPI_INT, 0, MPI_COMM_WORLD);
-        MPI_Bcast(&brain_nodes[i].node_type, 1, MPI_INT, 0, MPI_COMM_WORLD);
-        MPI_Bcast(&brain_nodes[i].neuron_type, 1, MPI_INT, 0, MPI_COMM_WORLD);
-        MPI_Bcast(&brain_nodes[i].x, 1, MPI_FLOAT, 0, MPI_COMM_WORLD);
-        MPI_Bcast(&brain_nodes[i].y, 1, MPI_FLOAT, 0, MPI_COMM_WORLD);
-        MPI_Bcast(&brain_nodes[i].z, 1, MPI_FLOAT, 0, MPI_COMM_WORLD);
-        MPI_Bcast(&brain_nodes[i].signals_last_ns, 1, MPI_INT, 0, MPI_COMM_WORLD);
-        MPI_Bcast(&brain_nodes[i].signals_this_ns, 1, MPI_INT, 0, MPI_COMM_WORLD);
-
-        brain_nodes[i].signalInbox = calloc(SIGNAL_INBOX_SIZE, sizeof(struct SignalStruct));
-        brain_nodes[i].num_nerve_inputs = calloc(NUM_SIGNAL_TYPES, sizeof(int));
-        brain_nodes[i].num_nerve_outputs = calloc(NUM_SIGNAL_TYPES, sizeof(int));
-        brain_nodes[i].num_outstanding_signals = 0;
-
-        if (!brain_nodes[i].signalInbox || !brain_nodes[i].num_nerve_inputs || !brain_nodes[i].num_nerve_outputs) {
-            fprintf(stderr, "[Rank %d] Allocation failure in brain_nodes[%d]\n", rank, i);
-            MPI_Abort(MPI_COMM_WORLD, 1);
-        }
-
-        MPI_Bcast(brain_nodes[i].num_nerve_inputs, NUM_SIGNAL_TYPES, MPI_INT, 0, MPI_COMM_WORLD);
-        MPI_Bcast(brain_nodes[i].num_nerve_outputs, NUM_SIGNAL_TYPES, MPI_INT, 0, MPI_COMM_WORLD);
-    }
-
-    if (rank == 0 && (!brain_nodes || !edges || num_brain_nodes == 0 || num_edges == 0)) {
-        fprintf(stderr, "[Rank 0] Invalid brain graph structure\n");
-        MPI_Abort(MPI_COMM_WORLD, 1);
-    }
 
     printf("[Rank %d] Loaded: neurons=%d nerves=%d nodes=%d edges=%d\n",
            rank, num_neurons, num_nerves, num_brain_nodes, num_edges);
@@ -125,42 +81,36 @@ int main(int argc, char **argv) {
     for (int i = start_idx; i < end_idx; i++)
         id_to_index_map[brain_nodes[i].id] = i;
 
-    int num_ns_to_simulate = atoi(argv[2]);
+    int num_ns_to_simulate = (int)duration;
     int total_iterations = 0, current_ns_iterations = 0;
     int max_iteration_per_ns = -1, min_iteration_per_ns = -1;
-    time_t seconds = 0, start_seconds = getCurrentSeconds();
 
     // ✅ START timing here
     double start_time = MPI_Wtime();
 
     while (elapsed_ns < num_ns_to_simulate) {
-        time_t current_seconds = getCurrentSeconds();
-        if (current_seconds != seconds) {
-            seconds = current_seconds;
-
-            if ((seconds - start_seconds) % MIN_LENGTH_NS == 0) {
-                if (elapsed_ns == 0) {
-                    max_iteration_per_ns = min_iteration_per_ns = current_ns_iterations;
-                } else {
-                    if (current_ns_iterations > max_iteration_per_ns)
-                        max_iteration_per_ns = current_ns_iterations;
-                    if (current_ns_iterations < min_iteration_per_ns)
-                        min_iteration_per_ns = current_ns_iterations;
-                }
-
-                elapsed_ns++;
-                current_ns_iterations = 0;
-
-                for (int i = start_idx; i < end_idx; i++) {
-                    brain_nodes[i].signals_last_ns = brain_nodes[i].signals_this_ns;
-                    brain_nodes[i].signals_this_ns = 0;
-                }
+        int previous_ns = elapsed_ns;
+        if (rank == 0) {
+            elapsed_ns = (int)((MPI_Wtime() - start_time) / MIN_LENGTH_NS);
+            if (elapsed_ns > num_ns_to_simulate) elapsed_ns = num_ns_to_simulate;
+        }
+        MPI_Bcast(&elapsed_ns, 1, MPI_INT, 0, MPI_COMM_WORLD);
+        if (elapsed_ns != previous_ns) {
+            if (min_iteration_per_ns < 0 || current_ns_iterations < min_iteration_per_ns)
+                min_iteration_per_ns = current_ns_iterations;
+            if (current_ns_iterations > max_iteration_per_ns)
+                max_iteration_per_ns = current_ns_iterations;
+            current_ns_iterations = 0;
+            for (int i = start_idx; i < end_idx; i++) {
+                brain_nodes[i].signals_last_ns = brain_nodes[i].signals_this_ns;
+                brain_nodes[i].signals_this_ns = 0;
             }
         }
+        if (elapsed_ns >= num_ns_to_simulate) break;
 
         receiveIncomingSignals(rank);
 
-        for (int i = 0; i < num_brain_nodes; i++) {
+        for (int i = start_idx; i < end_idx; i++) {
             if (brain_nodes[i].node_type == NERVE)
                 updateNodes(i);
         }
@@ -170,16 +120,12 @@ int main(int argc, char **argv) {
                 updateNodes(i);
         }
 
-        receiveIncomingSignals(rank);
-        MPI_Barrier(MPI_COMM_WORLD);
+        synchronizeSignals(rank);
         current_ns_iterations++;
         total_iterations++;
     }
 
-    MPI_Barrier(MPI_COMM_WORLD);
-    receiveIncomingSignals(rank);
-    usleep(50000);
-    MPI_Barrier(MPI_COMM_WORLD);
+    synchronizeSignals(rank);
 
     int *local_counts = malloc(local_count * sizeof(int));
     for (int i = 0; i < local_count; i++)
@@ -206,6 +152,16 @@ int main(int argc, char **argv) {
                 global_counts, recvcounts, displs, MPI_INT,
                 0, MPI_COMM_WORLD);
 
+    for (int i = 0; i < num_brain_nodes; i++) {
+        int totals[NUM_SIGNAL_TYPES];
+        MPI_Reduce(brain_nodes[i].num_nerve_inputs, totals, NUM_SIGNAL_TYPES,
+                   MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+        if (rank == 0) memcpy(brain_nodes[i].num_nerve_inputs, totals, sizeof(totals));
+        MPI_Reduce(brain_nodes[i].num_nerve_outputs, totals, NUM_SIGNAL_TYPES,
+                   MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+        if (rank == 0) memcpy(brain_nodes[i].num_nerve_outputs, totals, sizeof(totals));
+    }
+
     if (rank == 0) {
         for (int i = 0; i < num_brain_nodes; i++) {
             brain_nodes[i].total_signals_recieved = global_counts[i];
@@ -224,19 +180,7 @@ int main(int argc, char **argv) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    if (rank == 0) {
-        freeMemory();
-    } else {
-        for (int i = 0; i < num_brain_nodes; i++) {
-            free(brain_nodes[i].signalInbox);
-            free(brain_nodes[i].num_nerve_inputs);
-            free(brain_nodes[i].num_nerve_outputs);
-        }
-        free(brain_nodes);
-        free(edges);
-    }
-
-    free(id_to_index_map);
+    freeMemory();
     free(id_to_index);
     free(local_counts);
     if (rank == 0) {

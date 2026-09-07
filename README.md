@@ -14,36 +14,41 @@ The simulation reads a brain graph, generates signals at nerve nodes, applies ne
 | [`input_loader.c`](input_loader.c) | Graph parsing and node-to-edge linking |
 | [`neuron.c`](neuron.c) | Signal generation, propagation, weighting, and report output |
 | [`event_handler.c`](event_handler.c) | Local event dispatch and MPI signal transport |
+| [`simulation_utils.c`](simulation_utils.c) | MPI datatype and shared numerical/time helpers |
 | `small`, `medium`, `large`, `massive` | Included graph inputs |
 | [`summary_report`](summary_report) | Included text report from a previous run |
 
 There are six neuron categories and ten signal types. Signals are processed through per-node inboxes; the code tracks nerve input/output counts and total signals received by neurons.
 
-## Serial starting point
+## Build and run
 
-The serial source uses a C compiler and POSIX timing facilities. From a local clone:
+Use a C compiler and POSIX system. MPI additionally requires an MPI development environment providing `mpicc` and `mpiexec`.
 
 ```sh
-cc -O2 -Wall code.c -o brain_serial
-./brain_serial small 1
+make serial
+./brain_serial tests/tiny.graph 1
+
+make mpi
+mpiexec -n 2 ./brain_mpi tests/tiny.graph 1
 ```
 
-The arguments are the graph filename and the number of simulated nanoseconds. `MIN_LENGTH_NS` sets a wall-clock interval used to advance simulation time; simulated nanoseconds are not real-time execution durations. A run writes `summary_report` in the working directory, replacing any existing file with that name. Preserve the included report before running.
+Arguments are a graph filename and a nonnegative number of simulated nanoseconds. `MIN_LENGTH_NS` converts a wall-clock interval to simulation steps; simulated nanoseconds are not elapsed physical execution time. New runs write `summary_report.generated` in the working directory. The included historical `summary_report` is preserved. Run separate experiments in different working directories to keep their generated reports.
 
-These commands follow the source interface; they have not been validated in a fresh runtime environment.
+The default `make` target builds the standalone serial program. Compiled executables are ignored and should be built locally.
 
-## MPI implementation status
+## MPI maintenance and validation
 
-The parallel source requires an MPI development environment, but the committed build is incomplete:
+The modular build supplies the missing datatype/helpers. Each rank loads graph connectivity and processes only its assigned nodes. Remote messages use retained nonblocking send buffers; iteration synchronization checks that all messages have been received before advancing. Rank zero controls the common stopping time, and report counts are gathered across ranks. Directed edges are attached only to their sending nodes. Invalid node IDs, non-finite capacities/weights, and capacities too small to reduce a signal fail explicitly.
 
-- The `Makefile` targets `brain_serial`, uses `gcc`, and references `signal.c`, which is absent.
-- MPI datatype initialization and several utility functions are declared or used without definitions in the modular source files.
-- The committed `brain_mpi` binary does not establish that the current source can be rebuilt.
+```sh
+python -m pip install pytest
+python -m pytest --rootdir=. tests
+```
 
-Treat the MPI files as an implementation to inspect and complete before running distributed experiments. No reproducible speedup benchmark or serial/parallel equivalence claim is made here.
+Regression checks build both programs, verify a serial terminal neuron can receive signals without crashing, and exercise a tiny MPI graph with one and two ranks, signal delivery, invalid duration/IDs/capacity, and nerve counters owned by a non-root rank. These tests require local MPI process communication. They are functional smoke checks; they do not establish performance scaling, large-graph correctness, or serial/parallel equivalence.
 
-## Scope
+## Scope and reproducibility
 
-This is an abstract graph simulation for studying computation and communication. It is not a validated biological model. Randomness is seeded from wall-clock time, and the serial and MPI versions should not be assumed to produce identical results.
+This remains an abstract graph simulation, not a validated biological model. The MPI generator uses a fixed rank-dependent seed, but the number and ordering of operations remain wall-clock dependent, so output counts are not deterministic benchmarks. The serial implementation retains its original timing/randomness policy and legacy parser: use trusted, well-formed graphs with node IDs matching their zero-based input positions. The MPI input guards described above do not apply to the serial parser. Large inputs remain subject to the existing `MAX_NODE_ID` and inbox limits; inbox overflow can drop signals. Further scientific or performance claims require a separately designed validation experiment.
 
 See [`LICENSE`](LICENSE) for the repository's existing license terms.

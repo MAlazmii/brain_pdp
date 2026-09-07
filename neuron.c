@@ -10,6 +10,7 @@
 // -------------------------------
 // Constants and Globals
 // -------------------------------
+#include <math.h>
 #define SIGNAL_THRESHOLD 0.001
 
 static const float NEURON_TYPE_SIGNAL_WEIGHTS[6] = {
@@ -88,6 +89,10 @@ void handleSignal(int node_idx, float signal, int signal_type) {
 // Fire a signal through edges
 // -------------------------------
 void fireSignal(int node_idx, float signal, int signal_type) {
+    if (!isfinite(signal)) {
+        fprintf(stderr, "Non-finite signal value\n");
+        MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
+    }
     if (!brain_nodes[node_idx].edges || brain_nodes[node_idx].num_edges <= 0) return;
     if (signal_type < 0 || signal_type >= NUM_SIGNAL_TYPES) return;
 
@@ -107,11 +112,20 @@ void fireSignal(int node_idx, float signal, int signal_type) {
         float chunk = signal;
         if (chunk > edges[edge_idx].max_value)
             chunk = edges[edge_idx].max_value;
-        signal -= chunk;
+        float remaining = signal - chunk;
+        if (!(remaining < signal)) {
+            fprintf(stderr, "Edge capacity is too small to reduce the signal\n");
+            MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
+        }
+        signal = remaining;
 
         // --- Apply edge weight ---
         float type_weight = edges[edge_idx].messageTypeWeightings[signal_type];
         chunk *= type_weight;
+        if (!isfinite(chunk)) {
+            fprintf(stderr, "Edge weighting overflowed the signal\n");
+            MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
+        }
 
         if (brain_nodes[node_idx].node_type == NERVE &&
             brain_nodes[node_idx].num_nerve_outputs) {

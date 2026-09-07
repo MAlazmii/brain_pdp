@@ -1,0 +1,7 @@
+*.o
+/brain_serial
+/brain_mpi
+/summary_report.generated
+__pycache__/
+.pytest_cache/
+.DS_Store
