@@ -7,6 +7,8 @@
 #include <string.h>
 #include <assert.h>
 #include <math.h>
+#include <errno.h>
+#include <limits.h>
 #include "brain.h"
 
 // -------------------------------
@@ -14,6 +16,37 @@
 // -------------------------------
 extern int rank;
 extern int *id_to_index_map;
+
+static void inputError(const char *message) {
+    fprintf(stderr, "[Rank %d] Invalid graph: %s\n", rank, message);
+    MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
+}
+
+static char *tagValue(char *line) {
+    char *start = strchr(line, '>');
+    char *end = start ? strchr(start + 1, '<') : NULL;
+    if (!start || !end) inputError("malformed field");
+    *end = '\0';
+    return start + 1;
+}
+
+static int strictInt(char *line) {
+    char *value = tagValue(line), *end;
+    errno = 0;
+    long parsed = strtol(value, &end, 10);
+    if (errno || end == value || *end || parsed < INT_MIN || parsed > INT_MAX)
+        inputError("integer field is not an integer");
+    return (int)parsed;
+}
+
+static float strictFloat(char *line) {
+    char *value = tagValue(line), *end;
+    errno = 0;
+    float parsed = strtof(value, &end);
+    if (errno || end == value || *end || !isfinite(parsed))
+        inputError("numeric field must be finite");
+    return parsed;
+}
 
 // -------------------------------
 // Load brain graph from file
@@ -45,6 +78,11 @@ void loadBrainGraph(char *filename) {
 
     int currentNeuronIdx = 0;
     int currentEdgeIdx = 0;
+    unsigned node_fields = 0;
+    unsigned edge_fields = 0;
+    enum NodeType open_node_type = NEURON;
+    const unsigned required_node_fields = 1u | 2u | 4u | 8u;
+    const unsigned required_edge_fields = (1u << (4 + NUM_SIGNAL_TYPES)) - 1u;
 
     // -------------------------------
     // File Parsing
@@ -55,7 +93,9 @@ void loadBrainGraph(char *filename) {
 
         // --- Begin neuron or nerve node ---
         if (strncmp("<neuron>", line_contents, 8) == 0 || strncmp("<nerve>", line_contents, 7) == 0) {
+            if (currentMode != NONE) inputError("nested node or edge");
             currentMode = NEURON_NERVE;
+            node_fields = 0;
 
             if (currentNeuronIdx >= node_capacity) {
                 node_capacity *= 2;
@@ -78,15 +118,25 @@ void loadBrainGraph(char *filename) {
             }
 
             node->node_type = (strncmp("<neuron>", line_contents, 8) == 0) ? NEURON : NERVE;
+            open_node_type = node->node_type;
 
         // --- End neuron or nerve node ---
         } else if (strncmp("</neuron>", line_contents, 9) == 0 || strncmp("</nerve>", line_contents, 8) == 0) {
+            enum NodeType closing_type = strncmp("</neuron>", line_contents, 9) == 0 ? NEURON : NERVE;
+            if (currentMode != NEURON_NERVE || closing_type != open_node_type)
+                inputError("mismatched node terminator");
+            if (!(node_fields & 1u) ||
+                (open_node_type == NEURON &&
+                 ((node_fields & required_node_fields) != required_node_fields || !(node_fields & 16u))))
+                inputError("node is missing a required field");
             currentMode = NONE;
             currentNeuronIdx++;
 
         // --- Begin edge definition ---
         } else if (strncmp("<edge>", line_contents, 6) == 0) {
+            if (currentMode != NONE) inputError("nested node or edge");
             currentMode = EDGE;
+            edge_fields = 0;
 
             if (currentEdgeIdx >= edge_capacity) {
                 edge_capacity *= 2;
@@ -105,7 +155,10 @@ void loadBrainGraph(char *filename) {
             }
 
         // --- End edge definition ---
-        } else if (strncmp("</edge>", line_contents, 7) == 0 && currentMode == EDGE) {
+        } else if (strncmp("</edge>", line_contents, 7) == 0) {
+            if (currentMode != EDGE) inputError("edge terminator outside edge");
+            if (edge_fields != required_edge_fields)
+                inputError("edge is missing a required field");
             if (!isfinite(edges[currentEdgeIdx].max_value) || !(edges[currentEdgeIdx].max_value > 0)) {
                 fprintf(stderr, "Edge capacity must be positive\n");
                 MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
@@ -121,7 +174,8 @@ void loadBrainGraph(char *filename) {
 
         // --- Node properties ---
         } else if (strncmp("<id>", line_contents, 4) == 0 && currentMode == NEURON_NERVE) {
-            int id = atoi(strstr(line_contents, ">") + 1);
+            if (node_fields & 1u) inputError("duplicate node ID");
+            int id = strictInt(line_contents);
             brain_nodes[currentNeuronIdx].id = id;
 
             if (id < 0 || id >= MAX_NODE_ID || id_to_index_map[id] != -1) {
@@ -130,57 +184,88 @@ void loadBrainGraph(char *filename) {
             }
 
             id_to_index_map[id] = currentNeuronIdx;
+            node_fields |= 1u;
 
         } else if (strncmp("<x>", line_contents, 3) == 0) {
-            brain_nodes[currentNeuronIdx].x = atof(strstr(line_contents, ">") + 1);
+            if (currentMode != NEURON_NERVE) inputError("node field outside node");
+            if (node_fields & 2u) inputError("duplicate node field");
+            brain_nodes[currentNeuronIdx].x = strictFloat(line_contents);
+            node_fields |= 2u;
 
         } else if (strncmp("<y>", line_contents, 3) == 0) {
-            brain_nodes[currentNeuronIdx].y = atof(strstr(line_contents, ">") + 1);
+            if (currentMode != NEURON_NERVE) inputError("node field outside node");
+            if (node_fields & 4u) inputError("duplicate node field");
+            brain_nodes[currentNeuronIdx].y = strictFloat(line_contents);
+            node_fields |= 4u;
 
         } else if (strncmp("<z>", line_contents, 3) == 0) {
-            brain_nodes[currentNeuronIdx].z = atof(strstr(line_contents, ">") + 1);
+            if (currentMode != NEURON_NERVE) inputError("node field outside node");
+            if (node_fields & 8u) inputError("duplicate node field");
+            brain_nodes[currentNeuronIdx].z = strictFloat(line_contents);
+            node_fields |= 8u;
 
         } else if (strncmp("<type>", line_contents, 6) == 0) {
-            if (brain_nodes[currentNeuronIdx].node_type == NEURON) {
-                char *type = strstr(line_contents, ">") + 1;
-                if (strncmp(type, "sensory", 7) == 0) brain_nodes[currentNeuronIdx].neuron_type = SENSORY;
-                else if (strncmp(type, "motor", 5) == 0) brain_nodes[currentNeuronIdx].neuron_type = MOTOR;
-                else if (strncmp(type, "unipolar", 8) == 0) brain_nodes[currentNeuronIdx].neuron_type = UNIPOLAR;
-                else if (strncmp(type, "pseudounipolar", 14) == 0) brain_nodes[currentNeuronIdx].neuron_type = PSEUDOUNIPOLAR;
-                else if (strncmp(type, "bipolar", 7) == 0) brain_nodes[currentNeuronIdx].neuron_type = BIPOLAR;
-                else if (strncmp(type, "multipolar", 10) == 0) brain_nodes[currentNeuronIdx].neuron_type = MULTIPOLAR;
-                else {
-                    fprintf(stderr, "[Rank %d] Unknown neuron type: %s\n", rank, type);
-                    MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
-                }
-            }
+            if (currentMode != NEURON_NERVE || open_node_type != NEURON) inputError("type outside neuron");
+            if (node_fields & 16u) inputError("duplicate node field");
+            char *type = tagValue(line_contents);
+            if (strcmp(type, "sensory") == 0) brain_nodes[currentNeuronIdx].neuron_type = SENSORY;
+            else if (strcmp(type, "motor") == 0) brain_nodes[currentNeuronIdx].neuron_type = MOTOR;
+            else if (strcmp(type, "unipolar") == 0) brain_nodes[currentNeuronIdx].neuron_type = UNIPOLAR;
+            else if (strcmp(type, "pseudounipolar") == 0) brain_nodes[currentNeuronIdx].neuron_type = PSEUDOUNIPOLAR;
+            else if (strcmp(type, "bipolar") == 0) brain_nodes[currentNeuronIdx].neuron_type = BIPOLAR;
+            else if (strcmp(type, "multipolar") == 0) brain_nodes[currentNeuronIdx].neuron_type = MULTIPOLAR;
+            else inputError("unknown neuron type");
+            node_fields |= 16u;
 
         // --- Edge properties ---
         } else if (strncmp("<from>", line_contents, 6) == 0 && currentMode == EDGE) {
-            edges[currentEdgeIdx].from = atoi(strstr(line_contents, ">") + 1);
+            if (edge_fields & 1u) inputError("duplicate edge field");
+            edges[currentEdgeIdx].from = strictInt(line_contents);
+            edge_fields |= 1u;
 
         } else if (strncmp("<to>", line_contents, 4) == 0 && currentMode == EDGE) {
-            edges[currentEdgeIdx].to = atoi(strstr(line_contents, ">") + 1);
+            if (edge_fields & 2u) inputError("duplicate edge field");
+            edges[currentEdgeIdx].to = strictInt(line_contents);
+            edge_fields |= 2u;
 
         } else if (strncmp("<direction>", line_contents, 11) == 0 && currentMode == EDGE) {
-            char *dir = strstr(line_contents, ">") + 1;
-            if (strstr(dir, "bidirectional")) edges[currentEdgeIdx].direction = BIDIRECTIONAL;
-            else edges[currentEdgeIdx].direction = UNIDIRECTIONAL;
+            if (edge_fields & 4u) inputError("duplicate edge field");
+            char *dir = tagValue(line_contents);
+            if (strcmp(dir, "bidirectional") == 0) edges[currentEdgeIdx].direction = BIDIRECTIONAL;
+            else if (strcmp(dir, "unidirectional") == 0) edges[currentEdgeIdx].direction = UNIDIRECTIONAL;
+            else inputError("unknown edge direction");
+            edge_fields |= 4u;
 
         } else if (strncmp("<max_value>", line_contents, 11) == 0 && currentMode == EDGE) {
-            edges[currentEdgeIdx].max_value = atof(strstr(line_contents, ">") + 1);
+            if (edge_fields & 8u) inputError("duplicate edge field");
+            edges[currentEdgeIdx].max_value = strictFloat(line_contents);
+            edge_fields |= 8u;
 
         } else if (strncmp("<weighting_", line_contents, 11) == 0 && currentMode == EDGE) {
-            int idx = atoi(&line_contents[11]);
+            char *index_end;
+            errno = 0;
+            long idx_value = strtol(&line_contents[11], &index_end, 10);
+            int idx = (int)idx_value;
+            if (errno || index_end == &line_contents[11] || *index_end != '>' || idx_value < 0 || idx_value >= NUM_SIGNAL_TYPES)
+                inputError("invalid signal weighting index");
             if (idx >= 0 && idx < NUM_SIGNAL_TYPES) {
-                edges[currentEdgeIdx].messageTypeWeightings[idx] = atof(strstr(line_contents, ">") + 1);
+                if (edge_fields & (1u << (4 + idx))) inputError("duplicate edge field");
+                edges[currentEdgeIdx].messageTypeWeightings[idx] = strictFloat(line_contents);
+                edge_fields |= 1u << (4 + idx);
             } else {
-                fprintf(stderr, "[Rank %d] Invalid signal weighting index: %d\n", rank, idx);
+                inputError("invalid signal weighting index");
             }
         }
     }
 
     fclose(file);
+
+    if (currentMode != NONE) inputError("unterminated node or edge");
+    for (int i = 0; i < currentEdgeIdx; i++) {
+        if (edges[i].from < 0 || edges[i].from >= MAX_NODE_ID || id_to_index_map[edges[i].from] < 0 ||
+            edges[i].to < 0 || edges[i].to >= MAX_NODE_ID || id_to_index_map[edges[i].to] < 0)
+            inputError("edge endpoint does not name a node");
+    }
 
     // -------------------------------
     // Post-processing and Summary
@@ -251,4 +336,3 @@ int neuronTypeToIndex(enum NeuronType type) {
             return -1;
     }
 }
-

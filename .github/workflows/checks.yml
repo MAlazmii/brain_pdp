@@ -1,0 +1,19 @@
+name: checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      OMPI_MCA_rmaps_base_oversubscribe: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update && sudo apt-get install -y libopenmpi-dev openmpi-bin
+      - run: python -m pip install pytest
+      - run: make
+      - run: python -m pytest -q -p no:cacheprovider --rootdir=. tests --tb=short
